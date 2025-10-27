@@ -5,58 +5,69 @@ function Home() {
   return (
     <div
       style={{
-        textAlign: "center",
         minHeight: "100vh",
         background: "linear-gradient(135deg, #1d1e22, #2d2e32)",
         color: "#fff",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "40px",
       }}
     >
-      {/* Animated Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        style={{ fontSize: "2.5rem", color: "#61dafb" }}
-      >
-        Welcome to the JhonRam Website
-      </motion.h1>
-
-      {/* Fade-in paragraph */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 1 }}
-        style={{ fontSize: "1.3rem", maxWidth: "600px", lineHeight: "1.5" }}
-      >
-        Crafting creative digital experiences using React, animations, and a
-        passion for clean design.
-      </motion.p>
-
-      {/* Slide-in button */}
-      <motion.a
-        href="#/about"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
+      {/* Top Header */}
+      <header
         style={{
-          marginTop: "30px",
-          display: "inline-block",
-          padding: "12px 30px",
-          background: "#61dafb",
+          backgroundColor: "#fff",
           color: "#1d1e22",
-          borderRadius: "25px",
-          textDecoration: "none",
-          fontWeight: "600",
+          textAlign: "center",
+          padding: "20px 0",
+          fontWeight: "700",
+          fontSize: "1.8rem",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         }}
-        whileHover={{ scale: 1.05, backgroundColor: "#4ec0f7" }}
       >
-        Learn More
-      </motion.a>
+        Jhon Ramirez Portfolio
+      </header>
+
+      {/* Main Section */}
+      <div
+        style={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "25px",
+        }}
+      >
+        {[
+          { text: "Projects", link: "#/projects" },
+          { text: "Future Projects", link: "#/future-projects" },
+          { text: "Contact Info", link: "#/contact" },
+          { text: "About", link: "#/about" },
+        ].map((btn, index) => (
+          <motion.a
+            key={btn.text}
+            href={btn.link}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.6 }}
+            whileHover={{ scale: 1.1 }}
+            style={{
+              display: "inline-block",
+              padding: "15px 40px",
+              backgroundColor: "#61dafb",
+              color: "#1d1e22",
+              borderRadius: "30px",
+              fontSize: "1.2rem",
+              fontWeight: "600",
+              textDecoration: "none",
+              transition: "0.3s ease",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+            }}
+          >
+            {btn.text}
+          </motion.a>
+        ))}
+      </div>
     </div>
   );
 }
