@@ -15,18 +15,18 @@ const pillStyle = {
   boxShadow: "0 10px 22px rgba(0,0,0,0.35)",
 };
 
-const ProfileCard = ({ name, title, location, image, tags = [] }) => {
+const ProfileCard = ({ name, title, location, image, tags = [], iconUrl }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       whileHover={{ y: -4 }}
-      style={{ width: "100%", maxWidth: "420px" }}
+      style={{ width: "100%", maxWidth: "370px" }}
     >
       <TiltedCard
         borderRadius={26}
-        style={{ width: "100%", height: "560px" }}
+        style={{ width: "100%", height: "520px" }}
         innerStyle={{
           borderRadius: 26,
           backgroundImage: `
@@ -78,7 +78,30 @@ const ProfileCard = ({ name, title, location, image, tags = [] }) => {
           </div>
 
           {/* Bottom area */}
-          <div style={{ marginTop: 16 }}>
+          <div style={{ marginTop: 16, position: "relative" }}>
+            {iconUrl ? (
+              <div
+                style={{
+                  position: "absolute",
+                  left: 18,
+                  top: -22,
+                  width: 64,
+                  height: 64,
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  border: "3px solid rgba(255,255,255,0.9)",
+                  boxShadow: "0 12px 24px rgba(0,0,0,0.35)",
+                  background: "rgba(5,10,18,0.9)",
+                }}
+              >
+                <img
+                  src={iconUrl}
+                  alt={`${name} icon`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+            ) : null}
+
             {tags.length ? (
               <div
                 style={{
