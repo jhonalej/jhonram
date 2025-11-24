@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SplitText from "../components/SplitText";
-import TiltedCard from "../components/TiltedCard";
 import DarkVeil from "../components/DarkVeil";
+import ProfileCard from "../components/ProfileCard";
 
 function Home() {
   return (
@@ -17,18 +17,25 @@ function Home() {
       }}
     >
       {/* Animated Background */}
-      <DarkVeil />
+      <div
+        aria-hidden
+        style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}
+      >
+        <DarkVeil />
+      </div>
 
       {/* Top Header */}
       <header
         style={{
-          backgroundColor: "#fff",
-          color: "#1d1e22",
+          backgroundColor: "rgba(5, 8, 15, 0.7)",
+          backdropFilter: "blur(10px)",
+          color: "#eaf3ff",
           textAlign: "center",
           padding: "20px 0",
           fontWeight: "700",
           fontSize: "1.8rem",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
           zIndex: 2,
           position: "relative",
         }}
@@ -47,59 +54,39 @@ function Home() {
           padding: "40px 20px",
           position: "relative",
           zIndex: 1,
+          gap: "36px",
         }}
       >
-        {/* Main Card */}
+        <ProfileCard
+          name="Jhon Ramirez"
+          title="Electrical Engineer, B.S."
+          location="New York"
+          image="/profile.jpg"
+          tags={["Circuit Desing", "C/C++", "PCB Desing", "Power Electronics"]}
+        />
+
+        {/* Animated Description */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
           style={{
-            background: "rgba(45, 46, 50, 0.8)",
-            backdropFilter: "blur(10px)",
-            borderRadius: "25px",
-            padding: "60px",
-            maxWidth: "850px",
-            width: "90%",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "30px",
+            maxWidth: "780px",
+            textAlign: "center",
+            color: "#e1e8f4",
+            fontSize: "1.15rem",
+            lineHeight: "1.8",
+            padding: "0 12px",
           }}
         >
-          {/* Profile Image (Tilted Card) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <TiltedCard
-              image="/profile.jpg"
-              width={320}
-              height={320}
-              borderRadius={25}
-            />
-          </motion.div>
-
-          {/* Animated Description */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            style={{
-              maxWidth: "700px",
-              textAlign: "center",
-              color: "#d0d0d0",
-              fontSize: "1.2rem",
-              lineHeight: "1.8",
-            }}
-          >
-            <SplitText
-              text="Welcome to my personal portfolio! Here, I showcase my engineering projects, upcoming ideas, and professional growth. This website highlights my journey through design, development, and innovation — built fully with React and animated using Framer Motion."
-              delay={0.02}
-            />
-          </motion.div>
+          <SplitText
+              text="Welcome to my personal portfolio! Here, I want to showcase all 
+              of the projects that I have done through my school career as well as 
+              any future projects that I want to work on. The purpose of this
+              porfolio is not just to showcase everything I have done but also 
+              ensipre anyone and everyone to do a projects like these."
+            delay={0.02}
+          />
         </motion.div>
 
         {/* Buttons Section */}
@@ -109,7 +96,7 @@ function Home() {
             flexWrap: "wrap",
             justifyContent: "center",
             gap: "20px",
-            marginTop: "50px",
+            marginTop: "10px",
             position: "relative",
             zIndex: 1,
           }}
@@ -118,7 +105,6 @@ function Home() {
             { text: "Projects", link: "#/projects" },
             { text: "Future Projects", link: "#/future-projects" },
             { text: "Contact Info", link: "#/contact" },
-            { text: "About", link: "#/about" },
           ].map((btn, index) => (
             <motion.a
               key={btn.text}
@@ -131,13 +117,13 @@ function Home() {
                 display: "inline-block",
                 padding: "15px 40px",
                 backgroundColor: "#61dafb",
-                color: "#1d1e22",
+                color: "#0b1220",
                 borderRadius: "30px",
                 fontSize: "1.2rem",
                 fontWeight: "600",
                 textDecoration: "none",
                 transition: "0.3s ease",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
               }}
             >
               {btn.text}

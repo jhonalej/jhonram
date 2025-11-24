@@ -1,13 +1,21 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
-const TiltedCard = ({ image, width = 300, height = 300, borderRadius = 25 }) => {
+const TiltedCard = ({
+  image,
+  width,
+  height,
+  borderRadius = 25,
+  children,
+  style = {},
+  innerStyle = {},
+}) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const rotateX = useTransform(y, [-0.5, 0.5], [15, -15]);
-  const rotateY = useTransform(x, [-0.5, 0.5], [-15, 15]);
+  const rotateX = useTransform(y, [-0.5, 0.5], [10, -10]);
+  const rotateY = useTransform(x, [-0.5, 0.5], [-10, 10]);
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -31,6 +39,7 @@ const TiltedCard = ({ image, width = 300, height = 300, borderRadius = 25 }) => 
         borderRadius,
         perspective: 1000,
         cursor: "pointer",
+        ...style,
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -42,14 +51,21 @@ const TiltedCard = ({ image, width = 300, height = 300, borderRadius = 25 }) => 
           borderRadius,
           rotateX,
           rotateY,
-          backgroundImage: `url(${image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-          border: "3px solid #61dafb",
+          ...(image
+            ? {
+                backgroundImage: `url(${image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+                border: "3px solid #61dafb",
+              }
+            : {}),
+          ...innerStyle,
         }}
-        transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      />
+        transition={{ type: "spring", stiffness: 120, damping: 18, mass: 0.9 }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 };
