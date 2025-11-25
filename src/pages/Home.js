@@ -5,6 +5,10 @@ import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
 
 function Home() {
+  const handleAnimationComplete = () => {
+    // SplitText animation finished
+  };
+
   return (
     <div
       style={{
@@ -19,7 +23,14 @@ function Home() {
       {/* Animated Background */}
       <div
         aria-hidden
-        style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
       >
         <DarkVeil />
       </div>
@@ -40,7 +51,7 @@ function Home() {
           position: "relative",
         }}
       >
-        Jhon Ramirez Portfolio
+        Jhon Ramirez
       </header>
 
       {/* Hero Section */}
@@ -79,13 +90,24 @@ function Home() {
             padding: "0 12px",
           }}
         >
+
           <SplitText
-              text="Welcome to my personal portfolio! Here, I want to showcase all 
+            text="Welcome to my personal portfolio! Here, I want to showcase all 
               of the projects that I have done through my school career as well as 
               any future projects that I want to work on. The purpose of this
               porfolio is not just to showcase everything I have done but also 
               ensipre anyone and everyone to do a projects like these."
-            delay={0.02}
+            className="text-2xl font-semibold text-center"
+            delay={25}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            onLetterAnimationComplete={handleAnimationComplete}
           />
         </motion.div>
 
