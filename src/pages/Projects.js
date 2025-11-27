@@ -4,6 +4,7 @@ import BackHomeButton from "../components/BackHomeButton";
 import Waves from "../components/Waves";
 import SplitText from "../components/SplitText";
 import Folder from "../components/Folder";
+import CircularGallery from "../components/CircularGallery";
 import { Link } from "react-router-dom";
 
 function Projects() {
@@ -11,6 +12,25 @@ function Projects() {
     // SplitText animation finished
   };
 
+    const galleryItems = [
+      { image: "/profile.jpg", text: "Profile" },
+      {
+        image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+        text: "Workshop",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=900&q=80",
+        text: "Electronics Bench",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
+        text: "Circuit Board",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
+        text: "Code on Screen",
+      },
+    ];
   return (
     <div
       style={{
@@ -76,7 +96,9 @@ function Projects() {
 
         <div style={{ marginTop: 0 }}>
           <SplitText
-            text="Place holder ........"
+            text="This is where most of my project are, I have 3 big projects which are my Kinetic sand table, the LED-Cube and lastly
+            the smart magic mirror. along with these projects I have done some small projects that I want to show case. lastly I want 
+            to include projects that I have done through the classes I took during my 4 years of my undergrad."
             className="text-2xl font-semibold text-center"
             delay={25}
             duration={0.6}
@@ -93,24 +115,114 @@ function Projects() {
 
         <div
           style={{
-            height: "600px",
+            height: "150px",
             position: "relative",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "flex-start",
             width: "100%",
-            gap: "100px",
+            gap: "200px",
             flexWrap: "wrap",
+            paddingTop: "5px",
           }}
         >
           <Link to="/projects/led-cube" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#5227FF" className="test" label="LED Cube" />
+            <Folder size={1.5} color="#f2c12fff" className="test" label="LED Cube" />
           </Link>
           <Link to="/projects/kinetic-sand-table" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#4CAF50" className="test" label="Kinetic Sand Table" />
+            <Folder size={1.5} color="#e7913bff" className="test" label="Kinetic Sand Table" />
           </Link>
           <Link to="/projects/smart-magic-mirror" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#FF7043" className="test" label="Smart Magic Mirror" />
+            <Folder size={1.5} color="#ef7a1aff" className="test" label="Smart Magic Mirror" />
+          </Link>
+        </div>
+
+        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+          <CircularGallery
+            items={galleryItems}
+            bend={-1.5}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.02}
+          />
+        </div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          style={{ color: "#9fe4ff", marginTop: 24, marginBottom: 12, fontWeight: 600 }}
+        >
+          School Projects
+        </motion.h2>
+
+        <div
+          style={{
+            minHeight: "420px",
+            position: "relative",
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            width: "100%",
+            gap: "90px",
+            flexWrap: "wrap",
+            paddingTop: "8px",
+          }}
+        >
+          <Link to="/projects/school/embedded-systems" style={{ textDecoration: "none" }}>
+            <Folder size={1.4} color="#8ad6ff" className="test" label="Embedded Systems Lab" />
+          </Link>
+          <Link to="/projects/school/data-structures" style={{ textDecoration: "none" }}>
+            <Folder size={1.4} color="#b6c0ff" className="test" label="Data Structures" />
+          </Link>
+          <Link to="/projects/school/robotics-team" style={{ textDecoration: "none" }}>
+            <Folder size={1.4} color="#c5ffa3" className="test" label="Robotics Team" />
+          </Link>
+          <Link to="/projects/school/control-systems" style={{ textDecoration: "none" }}>
+            <Folder size={1.4} color="#ffd7a0" className="test" label="Control Systems" />
+          </Link>
+        </div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          style={{
+            color: "#a2f0c4",
+            marginTop: 28,
+            marginBottom: 12,
+            fontWeight: 600,
+          }}
+        >
+          Small Projects
+        </motion.h2>
+
+        <div
+          style={{
+            minHeight: "360px",
+            position: "relative",
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            width: "100%",
+            gap: "80px",
+            flexWrap: "wrap",
+            paddingTop: "8px",
+          }}
+        >
+          <Link to="/projects/small/portfolio-site" style={{ textDecoration: "none" }}>
+            <Folder size={1.3} color="#ffb3c8" className="test" label="Portfolio Site" />
+          </Link>
+          <Link to="/projects/small/weather-widget" style={{ textDecoration: "none" }}>
+            <Folder size={1.3} color="#c2b7ff" className="test" label="Weather Widget" />
+          </Link>
+          <Link to="/projects/small/pcb-design" style={{ textDecoration: "none" }}>
+            <Folder size={1.3} color="#ffcfa1" className="test" label="PCB Design" />
+          </Link>
+          <Link to="/projects/small/light-controller" style={{ textDecoration: "none" }}>
+            <Folder size={1.3} color="#b6f3ff" className="test" label="Light Controller" />
           </Link>
         </div>
       </div>
