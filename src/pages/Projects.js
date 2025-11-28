@@ -8,6 +8,19 @@ import CircularGallery from "../components/CircularGallery";
 import StaggeredMenu from "../components/StaggeredMenu";
 import { Link } from "react-router-dom";
 
+const navItems = [
+  { label: "Home", ariaLabel: "Go to home page", link: "/" },
+  { label: "Projects", ariaLabel: "View projects", link: "/projects" },
+  { label: "Future Projects", ariaLabel: "See future projects", link: "/future-projects" },
+  { label: "Contact", ariaLabel: "Open contact page", link: "/contact" },
+];
+
+const socialItems = [
+  { label: "Twitter", link: "https://twitter.com" },
+  { label: "GitHub", link: "https://github.com" },
+  { label: "LinkedIn", link: "https://linkedin.com" },
+];
+
 function Projects() {
   const handleAnimationComplete = () => {
     // SplitText animation finished
@@ -15,18 +28,18 @@ function Projects() {
 
   const galleryItems = [
     { image: "/profile.jpg", text: "Profile" },
-      {
-        image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
-        text: "Workshop",
-      },
-      {
-        image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=900&q=80",
-        text: "Electronics Bench",
-      },
-      {
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
-        text: "Circuit Board",
-      },
+    {
+      image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+      text: "Workshop",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=900&q=80",
+      text: "Electronics Bench",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
+      text: "Circuit Board",
+    },
     {
       image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
       text: "Code on Screen",
@@ -98,7 +111,6 @@ function Projects() {
         yGap={36}
         style={{ zIndex: 0 }}
       />
-      <StaggeredMenu />
       <div
         aria-hidden
         style={{
@@ -111,6 +123,13 @@ function Projects() {
       />
 
       <BackHomeButton style={{ position: "absolute", top: 20, left: 20, zIndex: 2 }} />
+      <StaggeredMenu
+        items={navItems}
+        socialItems={socialItems}
+        position="right"
+        displaySocials
+        displayItemNumbering
+      />
 
       <div
         style={{
@@ -161,7 +180,7 @@ function Projects() {
             alignItems: "flex-start",
             justifyContent: "center",
             width: "100%",
-            gap: "200px",
+            gap: "140px",
             flexWrap: "wrap",
             paddingTop: "5px",
           }}
@@ -177,7 +196,7 @@ function Projects() {
           </Link>
         </div>
 
-        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
           <CircularGallery
             items={galleryItems}
             bend={-1.5}
@@ -199,15 +218,15 @@ function Projects() {
 
         <div
           style={{
-            minHeight: "150px",
+            minHeight: "120px",
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "center",
             width: "100%",
-            gap: "90px",
+            gap: "80px",
             flexWrap: "wrap",
-            paddingTop: "5px",
+            paddingTop: "4px",
           }}
         >
           <Link to="/projects/school/embedded-systems" style={{ textDecoration: "none" }}>
@@ -224,7 +243,7 @@ function Projects() {
           </Link>
         </div>
 
-        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
           <CircularGallery
             items={schoolGalleryItems}
             bend={-1.5}
@@ -251,7 +270,7 @@ function Projects() {
 
         <div
           style={{
-            minHeight: "150px",
+            minHeight: "120px",
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
@@ -259,7 +278,7 @@ function Projects() {
             width: "100%",
             gap: "80px",
             flexWrap: "wrap",
-            paddingTop: "8px",
+            paddingTop: "4px",
           }}
         >
           <Link to="/projects/small/portfolio-site" style={{ textDecoration: "none" }}>
@@ -276,7 +295,7 @@ function Projects() {
           </Link>
         </div>
 
-        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
           <CircularGallery
             items={smallGalleryItems}
             bend={-1.5}
