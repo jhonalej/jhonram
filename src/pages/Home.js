@@ -3,6 +3,20 @@ import { motion } from "framer-motion";
 import SplitText from "../components/SplitText";
 import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
+import StaggeredMenu from "../components/StaggeredMenu";
+
+const navItems = [
+  { label: "Home", ariaLabel: "Go to home page", link: "/" },
+  { label: "Projects", ariaLabel: "View projects", link: "/projects" },
+  { label: "Future Projects", ariaLabel: "See future projects", link: "/future-projects" },
+  { label: "Contact", ariaLabel: "Open contact page", link: "/contact" },
+];
+
+const socialItems = [
+  { label: "Twitter", link: "https://twitter.com" },
+  { label: "GitHub", link: "https://github.com" },
+  { label: "LinkedIn", link: "https://linkedin.com" },
+];
 
 function Home() {
   const handleAnimationComplete = () => {
@@ -53,6 +67,14 @@ function Home() {
       >
         Jhon Ramirez
       </header>
+
+      <StaggeredMenu
+        items={navItems}
+        socialItems={socialItems}
+        position="right"
+        displaySocials
+        displayItemNumbering
+      />
 
       {/* Hero Section */}
       <div
