@@ -5,6 +5,7 @@ import Waves from "../components/Waves";
 import SplitText from "../components/SplitText";
 import Folder from "../components/Folder";
 import CircularGallery from "../components/CircularGallery";
+import StaggeredMenu from "../components/StaggeredMenu";
 import { Link } from "react-router-dom";
 
 function Projects() {
@@ -12,8 +13,8 @@ function Projects() {
     // SplitText animation finished
   };
 
-    const galleryItems = [
-      { image: "/profile.jpg", text: "Profile" },
+  const galleryItems = [
+    { image: "/profile.jpg", text: "Profile" },
       {
         image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
         text: "Workshop",
@@ -26,11 +27,49 @@ function Projects() {
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
         text: "Circuit Board",
       },
-      {
-        image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
-        text: "Code on Screen",
-      },
-    ];
+    {
+      image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
+      text: "Code on Screen",
+    },
+  ];
+
+  const schoolGalleryItems = [
+    {
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
+      text: "Lab Bench",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=900&q=80",
+      text: "Team Build",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
+      text: "Code Review",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+      text: "Workshop",
+    },
+  ];
+
+  const smallGalleryItems = [
+    {
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+      text: "Prototype",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+      text: "UI Sketch",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=900&q=80",
+      text: "LED Controller",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=900&q=80",
+      text: "PCB Layout",
+    },
+  ];
   return (
     <div
       style={{
@@ -59,6 +98,7 @@ function Projects() {
         yGap={36}
         style={{ zIndex: 0 }}
       />
+      <StaggeredMenu />
       <div
         aria-hidden
         style={{
@@ -119,7 +159,7 @@ function Projects() {
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             width: "100%",
             gap: "200px",
             flexWrap: "wrap",
@@ -159,15 +199,15 @@ function Projects() {
 
         <div
           style={{
-            minHeight: "420px",
+            minHeight: "150px",
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             width: "100%",
             gap: "90px",
             flexWrap: "wrap",
-            paddingTop: "8px",
+            paddingTop: "5px",
           }}
         >
           <Link to="/projects/school/embedded-systems" style={{ textDecoration: "none" }}>
@@ -182,6 +222,16 @@ function Projects() {
           <Link to="/projects/school/control-systems" style={{ textDecoration: "none" }}>
             <Folder size={1.4} color="#ffd7a0" className="test" label="Control Systems" />
           </Link>
+        </div>
+
+        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+          <CircularGallery
+            items={schoolGalleryItems}
+            bend={-1.5}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.02}
+          />
         </div>
 
         <motion.h2
@@ -201,11 +251,11 @@ function Projects() {
 
         <div
           style={{
-            minHeight: "360px",
+            minHeight: "150px",
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             width: "100%",
             gap: "80px",
             flexWrap: "wrap",
@@ -224,6 +274,16 @@ function Projects() {
           <Link to="/projects/small/light-controller" style={{ textDecoration: "none" }}>
             <Folder size={1.3} color="#b6f3ff" className="test" label="Light Controller" />
           </Link>
+        </div>
+
+        <div style={{ height: "500px", position: "relative", marginTop: "30px", marginBottom: "8px" }}>
+          <CircularGallery
+            items={smallGalleryItems}
+            bend={-1.5}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.02}
+          />
         </div>
       </div>
     </div>

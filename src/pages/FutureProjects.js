@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BackHomeButton from "../components/BackHomeButton";
+import StaggeredMenu from "../components/StaggeredMenu";
 
 function FutureProjects() {
   return (
@@ -18,6 +19,7 @@ function FutureProjects() {
       }}
     >
       <BackHomeButton style={{ position: "absolute", top: 20, left: 20 }} />
+      <StaggeredMenu />
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}

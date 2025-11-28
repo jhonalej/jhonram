@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SplitText from "../components/SplitText";
 import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
+import StaggeredMenu from "../components/StaggeredMenu";
 
 function Home() {
   const handleAnimationComplete = () => {
@@ -53,6 +54,8 @@ function Home() {
       >
         Jhon Ramirez
       </header>
+
+      <StaggeredMenu />
 
       {/* Hero Section */}
       <div
