@@ -7,9 +7,9 @@ const BackHomeButton = ({ style = {} }) => {
     padding: "2px",
     borderRadius: "999px",
     background:
-      "linear-gradient(120deg, rgba(97,218,251,0.9), rgba(139,92,246,0.7), rgba(59,130,246,0.8))",
-    boxShadow: "0 12px 30px rgba(0,0,0,0.35), 0 0 28px rgba(97,218,251,0.35)",
-    transition: "transform 180ms ease, box-shadow 180ms ease",
+      "linear-gradient(120deg, rgba(97,218,251,0.85), rgba(139,92,246,0.65), rgba(59,130,246,0.7))",
+    boxShadow: "0 10px 26px rgba(0,0,0,0.3)",
+    transition: "transform 180ms ease",
   };
 
   const pillStyle = {
@@ -17,9 +17,9 @@ const BackHomeButton = ({ style = {} }) => {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "10px",
-    padding: "12px 22px",
-    minWidth: "160px",
+    gap: "8px",
+    padding: "8px 14px",
+    minWidth: "120px",
     borderRadius: "999px",
     background: "rgba(10, 14, 23, 0.92)",
     color: "#e6f7ff",
@@ -33,8 +33,8 @@ const BackHomeButton = ({ style = {} }) => {
   };
 
   const iconWrap = {
-    width: "30px",
-    height: "30px",
+    width: "26px",
+    height: "26px",
     borderRadius: "999px",
     display: "inline-flex",
     alignItems: "center",
@@ -42,6 +42,7 @@ const BackHomeButton = ({ style = {} }) => {
     background:
       "linear-gradient(145deg, rgba(97,218,251,0.9), rgba(59,130,246,0.95))",
     boxShadow: "0 8px 20px rgba(0,0,0,0.35)",
+    border: "none",
   };
 
   return (
@@ -49,12 +50,10 @@ const BackHomeButton = ({ style = {} }) => {
       <span
         style={ringStyle}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-1px) scale(1.01)";
-          e.currentTarget.style.boxShadow = "0 16px 34px rgba(0,0,0,0.4), 0 0 34px rgba(97,218,251,0.4)";
+          e.currentTarget.style.transform = "translateY(-1px)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0) scale(1)";
-          e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.35), 0 0 28px rgba(97,218,251,0.35)";
+          e.currentTarget.style.transform = "translateY(0)";
         }}
       >
         <span style={pillStyle}>
@@ -63,8 +62,6 @@ const BackHomeButton = ({ style = {} }) => {
               position: "absolute",
               inset: 0,
               borderRadius: "inherit",
-              background:
-                "radial-gradient(120% 120% at 20% 50%, rgba(97,218,251,0.18), transparent 40%), radial-gradient(120% 120% at 80% 50%, rgba(59,130,246,0.18), transparent 40%)",
               pointerEvents: "none",
             }}
           />

@@ -1,7 +1,7 @@
 .staggered-menu-wrapper {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   z-index: 40;
   pointer-events: auto;
 }
@@ -17,8 +17,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: flex-end;
   pointer-events: auto;
 }
 
@@ -28,24 +27,22 @@
 
 .sm-toggle {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(9, 14, 22, 0.75);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 24, 34, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 12px;
+  padding: 0;
   cursor: pointer;
   color: #e9f1ff;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.03em;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
 }
 
 .sm-toggle:hover {
-  background: rgba(97, 218, 251, 0.12);
+  background: rgba(97, 218, 251, 0.14);
   border-color: rgba(97, 218, 251, 0.35);
   transform: translateY(-1px);
 }
@@ -53,40 +50,44 @@
 .sm-toggle:focus-visible {
   outline: 2px solid #ffffffaa;
   outline-offset: 2px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .sm-toggle-textWrap {
-  position: relative;
-  display: inline-block;
-  height: 1.05em;
-  overflow: hidden;
-  white-space: nowrap;
-  width: var(--sm-toggle-width, auto);
-  min-width: var(--sm-toggle-width, auto);
-}
-
-.sm-toggle-textInner {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.sm-toggle-line {
-  display: block;
-  height: 1em;
-  line-height: 1;
+  display: none;
 }
 
 .sm-icon {
   position: relative;
-  width: 12px;
-  height: 12px;
-  flex: 0 0 12px;
+  width: 22px;
+  height: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   will-change: transform;
+}
+
+.sm-icon-line {
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.sm-icon-line:nth-child(1) {
+  top: 4px;
+}
+
+.sm-icon-line:nth-child(2) {
+  top: 8px;
+}
+
+.sm-icon-line:nth-child(3) {
+  top: 12px;
 }
 
 .sm-panel-itemWrap {
@@ -205,7 +206,7 @@
 .sm-socials-link {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #111;
+  color: #fff;
   text-decoration: none;
   position: relative;
   padding: 2px 0;

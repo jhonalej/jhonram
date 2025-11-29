@@ -26,8 +26,6 @@ export const StaggeredMenu = ({
   const panelRef = useRef(null);
   const preLayersRef = useRef(null);
   const preLayerElsRef = useRef([]);
-  const plusHRef = useRef(null);
-  const plusVRef = useRef(null);
   const iconRef = useRef(null);
   const textInnerRef = useRef(null);
   const textWrapRef = useRef(null);
@@ -46,11 +44,9 @@ export const StaggeredMenu = ({
     const ctx = gsap.context(() => {
       const panel = panelRef.current;
       const preContainer = preLayersRef.current;
-      const plusH = plusHRef.current;
-      const plusV = plusVRef.current;
       const icon = iconRef.current;
       const textInner = textInnerRef.current;
-      if (!panel || !plusH || !plusV || !icon || !textInner) return;
+      if (!panel || !icon || !textInner) return;
 
       let preLayers = [];
       if (preContainer) {
@@ -58,10 +54,8 @@ export const StaggeredMenu = ({
       }
       preLayerElsRef.current = preLayers;
 
-      const offscreen = position === 'left' ? -100 : 100;
+      const offscreen = position === 'left' ? -120 : 120;
       gsap.set([panel, ...preLayers], { xPercent: offscreen });
-      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
       gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
       gsap.set(textInner, { yPercent: 0 });
       if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
@@ -205,7 +199,7 @@ export const StaggeredMenu = ({
 
     const all = [...layers, panel];
     closeTweenRef.current?.kill();
-    const offscreen = position === 'left' ? -100 : 100;
+    const offscreen = position === 'left' ? -120 : 120;
     closeTweenRef.current = gsap.to(all, {
       xPercent: offscreen,
       duration: 0.32,
@@ -232,11 +226,20 @@ export const StaggeredMenu = ({
   const animateIcon = useCallback(opening => {
     const icon = iconRef.current;
     if (!icon) return;
+    const lines = icon.querySelectorAll('.sm-icon-line');
     spinTweenRef.current?.kill();
     if (opening) {
-      spinTweenRef.current = gsap.to(icon, { rotate: 225, duration: 0.8, ease: 'power4.out', overwrite: 'auto' });
+      spinTweenRef.current = gsap
+        .timeline({ overwrite: 'auto' })
+        .to(lines[0], { y: 5, duration: 0.18, ease: 'power3.out' }, 0)
+        .to(lines[2], { y: -5, duration: 0.18, ease: 'power3.out' }, 0)
+        .to(lines[1], { opacity: 0, duration: 0.18, ease: 'power3.out' }, 0);
     } else {
-      spinTweenRef.current = gsap.to(icon, { rotate: 0, duration: 0.35, ease: 'power3.inOut', overwrite: 'auto' });
+      spinTweenRef.current = gsap
+        .timeline({ overwrite: 'auto' })
+        .to(lines[0], { y: 0, duration: 0.18, ease: 'power3.out' }, 0)
+        .to(lines[2], { y: 0, duration: 0.18, ease: 'power3.out' }, 0)
+        .to(lines[1], { opacity: 1, duration: 0.18, ease: 'power3.out' }, 0);
     }
   }, []);
 
@@ -390,8 +393,9 @@ export const StaggeredMenu = ({
             </span>
           </span>
           <span ref={iconRef} className="sm-icon" aria-hidden="true">
-            <span ref={plusHRef} className="sm-icon-line" />
-            <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
+            <span className="sm-icon-line" />
+            <span className="sm-icon-line" />
+            <span className="sm-icon-line" />
           </span>
         </button>
       </header>
