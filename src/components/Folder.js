@@ -19,7 +19,16 @@ const darkenColor = (hex, percent) => {
   return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
 };
 
-const Folder = ({ color = '#5227FF', size = 1, items = [], className = '', label = '' }) => {
+const Folder = ({
+  color = '#5227FF',
+  size = 1,
+  items = [],
+  className = '',
+  label = '',
+  labelHref,
+  labelTarget,
+  labelRel
+}) => {
   const maxItems = 3;
   const papers = items.slice(0, maxItems);
   while (papers.length < maxItems) {
@@ -98,7 +107,22 @@ const Folder = ({ color = '#5227FF', size = 1, items = [], className = '', label
           ))}
           <div className="folder__front"></div>
           <div className="folder__front right"></div>
-          {label ? <div className="folder__label">{label}</div> : null}
+          {label ? (
+            labelHref ? (
+              <a
+                className="folder__label folder__label-link"
+                href={labelHref}
+                target={labelTarget}
+                rel={labelRel}
+                aria-label={label}
+                onClick={e => e.stopPropagation()}
+              >
+                {label}
+              </a>
+            ) : (
+              <div className="folder__label">{label}</div>
+            )
+          ) : null}
         </div>
       </div>
     </div>
