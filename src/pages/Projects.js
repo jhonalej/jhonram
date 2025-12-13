@@ -6,7 +6,6 @@ import SplitText from "../components/SplitText";
 import Folder from "../components/Folder";
 import CircularGallery from "../components/CircularGallery";
 import StaggeredMenu from "../components/StaggeredMenu";
-import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -184,15 +183,81 @@ function Projects() {
             paddingTop: "5px",
           }}
         >
-          <Link to="/projects/led-cube" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#f2c12fff" className="test" label="LED Cube" />
-          </Link>
-          <Link to="/projects/kinetic-sand-table" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#e7913bff" className="test" label="Kinetic Sand Table" />
-          </Link>
-          <Link to="/projects/smart-magic-mirror" style={{ textDecoration: "none" }}>
-            <Folder size={1.5} color="#ef7a1aff" className="test" label="Smart Magic Mirror" />
-          </Link>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.5}
+              color="#f2c12fff"
+              className="test"
+              label="LED Cube"
+              items={[
+                <img
+                  key="led1"
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                  alt="LED cube prototype"
+                />,
+                <img
+                  key="led2"
+                  src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80"
+                  alt="Soldering LED matrix"
+                />,
+                <img
+                  key="led3"
+                  src="https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=600&q=80"
+                  alt="PCB layout"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.5}
+              color="#e7913bff"
+              className="test"
+              label="Kinetic Sand Table"
+              items={[
+                <img
+                  key="sand1"
+                  src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80"
+                  alt="Workshop table"
+                />,
+                <img
+                  key="sand2"
+                  src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=600&q=80"
+                  alt="Motion control"
+                />,
+                <img
+                  key="sand3"
+                  src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80"
+                  alt="LED controller"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.5}
+              color="#ef7a1aff"
+              className="test"
+              label="Smart Magic Mirror"
+              items={[
+                <img
+                  key="mirror1"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="UI sketch"
+                />,
+                <img
+                  key="mirror2"
+                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=600&q=80"
+                  alt="Code on screen"
+                />,
+                <img
+                  key="mirror3"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                  alt="Electronics bench"
+                />,
+              ]}
+            />
+          </div>
         </div>
 
         <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
@@ -228,18 +293,59 @@ function Projects() {
             paddingTop: "4px",
           }}
         >
-          <Link to="/projects/school/embedded-systems" style={{ textDecoration: "none" }}>
-            <Folder size={1.4} color="#8ad6ff" className="test" label="Embedded Systems Lab" />
-          </Link>
-          <Link to="/projects/school/data-structures" style={{ textDecoration: "none" }}>
-            <Folder size={1.4} color="#b6c0ff" className="test" label="Data Structures" />
-          </Link>
-          <Link to="/projects/school/robotics-team" style={{ textDecoration: "none" }}>
-            <Folder size={1.4} color="#c5ffa3" className="test" label="Robotics Team" />
-          </Link>
-          <Link to="/projects/school/control-systems" style={{ textDecoration: "none" }}>
-            <Folder size={1.4} color="#ffd7a0" className="test" label="Control Systems" />
-          </Link>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.4}
+              color="#8ad6ff"
+              className="test"
+              label="4-Wheel drive robot"
+              labelHref="https://github.com/jhonalej/MAE-576-robot.git"
+              labelTarget="_blank"
+              labelRel="noopener noreferrer"
+              items={[
+                <img
+                  key="robot1"
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+                  alt="Robot build bench"
+                />,
+                <img
+                  key="robot2"
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                  alt="Code review"
+                />,
+                <img
+                  key="robot3"
+                  src="https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=600&q=80"
+                  alt="Team build session"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.4}
+              color="#b6c0ff"
+              className="test"
+              label="Power Electronics"
+              items={[
+                <img
+                  key="power1"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                  alt="Power board close-up"
+                />,
+                <img
+                  key="power2"
+                  src="https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=600&q=80"
+                  alt="PCB layout"
+                />,
+                <img
+                  key="power3"
+                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
+                  alt="Lab instruments"
+                />,
+              ]}
+            />
+          </div>
         </div>
 
         <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
@@ -280,18 +386,106 @@ function Projects() {
             paddingTop: "4px",
           }}
         >
-          <Link to="/projects/small/portfolio-site" style={{ textDecoration: "none" }}>
-            <Folder size={1.3} color="#ffb3c8" className="test" label="Portfolio Site" />
-          </Link>
-          <Link to="/projects/small/weather-widget" style={{ textDecoration: "none" }}>
-            <Folder size={1.3} color="#c2b7ff" className="test" label="Weather Widget" />
-          </Link>
-          <Link to="/projects/small/pcb-design" style={{ textDecoration: "none" }}>
-            <Folder size={1.3} color="#ffcfa1" className="test" label="PCB Design" />
-          </Link>
-          <Link to="/projects/small/light-controller" style={{ textDecoration: "none" }}>
-            <Folder size={1.3} color="#b6f3ff" className="test" label="Light Controller" />
-          </Link>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.3}
+              color="#ffb3c8"
+              className="test"
+              label="Portfolio Site"
+              items={[
+                <img
+                  key="portfolio1"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="Design sketch"
+                />,
+                <img
+                  key="portfolio2"
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80"
+                  alt="Code editor"
+                />,
+                <img
+                  key="portfolio3"
+                  src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80"
+                  alt="UI wiring"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.3}
+              color="#c2b7ff"
+              className="test"
+              label="automatic blinds"
+              items={[
+                <img
+                  key="blinds1"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="Circuit planning"
+                />,
+                <img
+                  key="blinds2"
+                  src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=600&q=80"
+                  alt="Microcontroller wiring"
+                />,
+                <img
+                  key="blinds3"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                  alt="Board layout"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.3}
+              color="#ffcfa1"
+              className="test"
+              label="PCB Design"
+              items={[
+                <img
+                  key="pcb1"
+                  src="https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=600&q=80"
+                  alt="PCB routing"
+                />,
+                <img
+                  key="pcb2"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                  alt="Circuit board close-up"
+                />,
+                <img
+                  key="pcb3"
+                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
+                  alt="Lab tools"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.3}
+              color="#b6f3ff"
+              className="test"
+              label="memory game"
+              items={[
+                <img
+                  key="memory1"
+                  src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80"
+                  alt="Workshop table"
+                />,
+                <img
+                  key="memory2"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="Code on screen"
+                />,
+                <img
+                  key="memory3"
+                  src="https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=600&q=80"
+                  alt="Team build"
+                />,
+              ]}
+            />
+          </div>
         </div>
 
         <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
