@@ -98,6 +98,7 @@ class Media {
     geometry,
     gl,
     image,
+    isAnimated = false,
     index,
     length,
     renderer,
@@ -114,6 +115,7 @@ class Media {
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
+    this.isAnimated = isAnimated || /\.(gif)(\?|$)/i.test(image);
     this.index = index;
     this.length = length;
     this.renderer = renderer;
@@ -134,6 +136,7 @@ class Media {
     const texture = new Texture(this.gl, {
       generateMipmaps: true
     });
+    this.texture = texture;
     this.program = new Program(this.gl, {
       depthTest: false,
       depthWrite: false,
@@ -202,6 +205,7 @@ class Media {
     img.onload = () => {
       texture.image = img;
       this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      texture.needsUpdate = true;
     };
   }
   createMesh() {
@@ -260,6 +264,10 @@ class Media {
     if (direction === 'left' && this.isAfter) {
       this.extra += this.widthTotal;
       this.isBefore = this.isAfter = false;
+    }
+
+    if (this.isAnimated && this.texture) {
+      this.texture.needsUpdate = true;
     }
   }
   onResize({ screen, viewport } = {}) {
