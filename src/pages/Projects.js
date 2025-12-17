@@ -6,6 +6,10 @@ import SplitText from "../components/SplitText";
 import Folder from "../components/Folder";
 import CircularGallery from "../components/CircularGallery";
 import StaggeredMenu from "../components/StaggeredMenu";
+import sandControls from "../images/sand_table/controls.jpg";
+import sandLines from "../images/sand_table/Lines_color.jpg";
+import sandChristmas from "../images/sand_table/christmas_lines.jpg";
+import sandInside from "../images/sand_table/mechanical_inside.jpg";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -25,18 +29,13 @@ function Projects() {
   };
 
   const galleryItems = [
+    { image: sandLines, text: "Sand Table Patterns" },
+    { image: sandChristmas, text: "Sand Table Christmas Pattern" },
+    { image: sandControls, text: "Sand Table Controls" },
     { image: "/profile.jpg", text: "Profile" },
-    {
-      image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
-      text: "Workshop",
-    },
     {
       image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=900&q=80",
       text: "Electronics Bench",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",
-      text: "Circuit Board",
     },
     {
       image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
@@ -214,21 +213,24 @@ function Projects() {
               color="#e7913bff"
               className="test"
               label="Kinetic Sand Table"
+              labelHref="https://github.com/jhonalej/Kinetic-sand-table.git"
+              labelTarget="_blank"
+              labelRel="noopener noreferrer"
               items={[
                 <img
-                  key="sand1"
-                  src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80"
-                  alt="Workshop table"
+                  key="sand-controls"
+                  src={sandControls}
+                  alt="Sand table control layout"
                 />,
                 <img
-                  key="sand2"
-                  src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=600&q=80"
-                  alt="Motion control"
+                  key="sand-pattern"
+                  src={sandLines}
+                  alt="Colored sand pattern from the table"
                 />,
                 <img
-                  key="sand3"
-                  src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80"
-                  alt="LED controller"
+                  key="sand-mechanics"
+                  src={sandInside}
+                  alt="Mechanical interior of sand table"
                 />,
               ]}
             />
@@ -342,6 +344,81 @@ function Projects() {
                   key="power3"
                   src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
                   alt="Lab instruments"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.4}
+              color="#9fe7b6"
+              className="test"
+              label="ACV sensor"
+              items={[
+                <img
+                  key="acv1"
+                  src="https://images.unsplash.com/photo-1582719478242-48d48c8b31c8?auto=format&fit=crop&w=600&q=80"
+                  alt="AC voltage sensor setup"
+                />,
+                <img
+                  key="acv2"
+                  src="https://images.unsplash.com/photo-1508669232496-137b159c1cdb?auto=format&fit=crop&w=600&q=80"
+                  alt="Oscilloscope measuring sensor output"
+                />,
+                <img
+                  key="acv3"
+                  src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=600&q=80"
+                  alt="Breadboard wiring for ACV sensor"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.4}
+              color="#7cc7ff"
+              className="test"
+              label="frogger (EE379)"
+              items={[
+                <img
+                  key="frogger1"
+                  src="https://images.unsplash.com/photo-1527443224154-d8c1f98d60fd?auto=format&fit=crop&w=600&q=80"
+                  alt="Retro arcade cabinet"
+                />,
+                <img
+                  key="frogger2"
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80"
+                  alt="Game code on laptop"
+                />,
+                <img
+                  key="frogger3"
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                  alt="LED matrix for game display"
+                />,
+              ]}
+            />
+          </div>
+          <div style={{ textDecoration: "none" }}>
+            <Folder
+              size={1.4}
+              color="#ffd27f"
+              className="test"
+              label="Servo control (EE478)"
+              items={[
+                <img
+                  key="servo1"
+                  src="https://images.unsplash.com/photo-1582719478145-3caa709e119b?auto=format&fit=crop&w=600&q=80"
+                  alt="Servo motor close-up"
+                />,
+                <img
+                  key="servo2"
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+                  alt="Bench setup with controllers"
+                />,
+                <img
+                  key="servo3"
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+                  alt="Breadboard wiring for servo control"
                 />,
               ]}
             />
