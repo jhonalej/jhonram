@@ -300,7 +300,7 @@ function Projects() {
               size={1.2}
               color="#8ad6ff"
               className="test"
-              label="4-Wheel drive robot(MAE57)"
+              label="4-Wheel drive robot (MAE57)"
               labelHref="https://github.com/jhonalej/MAE-576-robot.git"
               labelTarget="_blank"
               labelRel="noopener noreferrer"
@@ -328,7 +328,7 @@ function Projects() {
               size={1.2}
               color="#b6c0ff"
               className="test"
-              label="Power Electronics(EE467)"
+              label="Power Electronics (EE467)"
               items={[
                 <img
                   key="power1"
@@ -353,7 +353,7 @@ function Projects() {
               size={1.2}
               color="#9fe7b6"
               className="test"
-              label="ACV sensor(EE494)"
+              label="ACV sensor (EE494)"
               items={[
                 <img
                   key="acv1"
