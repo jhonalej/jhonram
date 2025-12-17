@@ -297,7 +297,7 @@ function Projects() {
         >
           <div style={{ textDecoration: "none" }}>
             <Folder
-              size={1.4}
+              size={1.2}
               color="#8ad6ff"
               className="test"
               label="4-Wheel drive robot(MAE57)"
@@ -325,7 +325,7 @@ function Projects() {
           </div>
           <div style={{ textDecoration: "none" }}>
             <Folder
-              size={1.4}
+              size={1.2}
               color="#b6c0ff"
               className="test"
               label="Power Electronics(EE467)"
@@ -350,7 +350,7 @@ function Projects() {
           </div>
           <div style={{ textDecoration: "none" }}>
             <Folder
-              size={1.4}
+              size={1.2}
               color="#9fe7b6"
               className="test"
               label="ACV sensor(EE494)"
@@ -375,7 +375,7 @@ function Projects() {
           </div>
           <div style={{ textDecoration: "none" }}>
             <Folder
-              size={1.4}
+              size={1.2}
               color="#7cc7ff"
               className="test"
               label="frogger (EE379)"
@@ -400,7 +400,7 @@ function Projects() {
           </div>
           <div style={{ textDecoration: "none" }}>
             <Folder
-              size={1.4}
+              size={1.2}
               color="#ffd27f"
               className="test"
               label="Servo control (EE478)"
