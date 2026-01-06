@@ -96,21 +96,24 @@
   background: var(--paper-1);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.paper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .paper:nth-child(2) {
   background: var(--paper-2);
-  width: 80%;
-  height: 70%;
+  width: 78%;
+  height: 68%;
 }
 
 .paper:nth-child(3) {
   background: var(--paper-3);
-  width: 90%;
+  width: 86%;
   height: 60%;
 }
 
@@ -128,31 +131,29 @@
 .folder__label {
   position: absolute;
   z-index: 4;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--label-scale, 1));
+  transform-origin: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.95rem;
-  color: #f5f7ff;
+  color: #000000 !important;
   text-align: center;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  text-shadow: none;
+  pointer-events: none;
+  width: 90%;
 }
 
-.folder__label-link {
-  color: inherit;
-  text-decoration: none;
-  pointer-events: auto;
+/* Ensure papers appear above the label when the folder is open */
+.folder.open .paper:nth-child(1) {
+  z-index: 10 !important;
 }
-
-.folder__label-link:hover,
-.folder__label-link:focus {
-  text-decoration: underline;
+.folder.open .paper:nth-child(2) {
+  z-index: 11 !important;
 }
-
-.paper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.folder.open .paper:nth-child(3) {
+  z-index: 12 !important;
 }

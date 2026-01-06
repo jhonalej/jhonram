@@ -19,16 +19,8 @@ const darkenColor = (hex, percent) => {
   return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
 };
 
-const Folder = ({
-  color = '#5227FF',
-  size = 1,
-  items = [],
-  className = '',
-  label = '',
-  labelHref,
-  labelTarget,
-  labelRel
-}) => {
+const Folder = ({ color = '#5227FF', size = 1, items = [], className = '', label = '' }) => {
+  const FORCED_FOLDER_COLOR = '#BCC6CC';
   const maxItems = 3;
   const papers = items.slice(0, maxItems);
   while (papers.length < maxItems) {
@@ -38,7 +30,7 @@ const Folder = ({
   const [open, setOpen] = useState(false);
   const [paperOffsets, setPaperOffsets] = useState(Array.from({ length: maxItems }, () => ({ x: 0, y: 0 })));
 
-  const folderBackColor = darkenColor(color, 0.08);
+  const folderBackColor = darkenColor(FORCED_FOLDER_COLOR, 0.08);
   const paper1 = darkenColor('#ffffff', 0.1);
   const paper2 = darkenColor('#ffffff', 0.05);
   const paper3 = '#ffffff';
@@ -73,11 +65,12 @@ const Folder = ({
   };
 
   const folderStyle = {
-    '--folder-color': color,
+    '--folder-color': FORCED_FOLDER_COLOR,
     '--folder-back-color': folderBackColor,
     '--paper-1': paper1,
     '--paper-2': paper2,
-    '--paper-3': paper3
+    '--paper-3': paper3,
+    '--label-scale': `${1 / size}`
   };
 
   const folderClassName = `folder ${open ? 'open' : ''}`.trim();
@@ -108,20 +101,13 @@ const Folder = ({
           <div className="folder__front"></div>
           <div className="folder__front right"></div>
           {label ? (
-            labelHref ? (
-              <a
-                className="folder__label folder__label-link"
-                href={labelHref}
-                target={labelTarget}
-                rel={labelRel}
-                aria-label={label}
-                onClick={e => e.stopPropagation()}
-              >
-                {label}
-              </a>
-            ) : (
-              <div className="folder__label">{label}</div>
-            )
+            <div
+              className="folder__label"
+              aria-label={label}
+              onClick={e => e.stopPropagation()}
+            >
+              {label}
+            </div>
           ) : null}
         </div>
       </div>
