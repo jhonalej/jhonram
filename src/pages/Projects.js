@@ -1,15 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BackHomeButton from "../components/BackHomeButton";
-import Waves from "../components/Waves";
+import DarkVeil from "../components/DarkVeil";
 import SplitText from "../components/SplitText";
 import Folder from "../components/Folder";
-import CircularGallery from "../components/CircularGallery";
+// CircularGallery removed per request
 import StaggeredMenu from "../components/StaggeredMenu";
-import sandControls from "../images/sand_table/controls.jpg";
-import sandLines from "../images/sand_table/Lines_color.jpg";
-import sandChristmas from "../images/sand_table/christmas_lines.jpg";
-import sandInside from "../images/sand_table/mechanical_inside.jpg";
+
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -28,64 +25,13 @@ function Projects() {
     // SplitText animation finished
   };
 
-  const galleryItems = [
-    { image: sandLines, text: "Sand Table Patterns" },
-    { image: sandChristmas, text: "Sand Table Christmas Pattern" },
-    { image: sandControls, text: "Sand Table Controls" },
-    { image: "/profile.jpg", text: "Profile" },
-    {
-      image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=900&q=80",
-      text: "Electronics Bench",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
-      text: "Code on Screen",
-    },
-  ];
-
-  const schoolGalleryItems = [
-    {
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
-      text: "Lab Bench",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=900&q=80",
-      text: "Team Build",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
-      text: "Code Review",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
-      text: "Workshop",
-    },
-  ];
-
-  const smallGalleryItems = [
-    {
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
-      text: "Prototype",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
-      text: "UI Sketch",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=900&q=80",
-      text: "LED Controller",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=900&q=80",
-      text: "PCB Layout",
-    },
-  ];
+  // Circular galleries removed
   return (
     <div
       style={{
         position: "relative",
         minHeight: "100vh",
-        overflow: "hidden",
+        overflow: "visible",
         color: "#fff",
         display: "flex",
         flexDirection: "column",
@@ -94,32 +40,21 @@ function Projects() {
         padding: "120px 20px 80px",
       }}
     >
-      <Waves
-        lineColor="rgba(97,218,251,0.35)"
-        backgroundColor="rgba(5,8,16,0.9)"
-        waveSpeedX={0.02}
-        waveSpeedY={0.01}
-        waveAmpX={40}
-        waveAmpY={20}
-        friction={0.93}
-        tension={0.01}
-        maxCursorMove={120}
-        xGap={12}
-        yGap={36}
-        style={{ zIndex: 0 }}
-      />
       <div
         aria-hidden
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(140% 120% at 50% 50%, transparent 60%, rgba(0,0,0,0.4) 100%)",
-          zIndex: 1,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
         }}
-      />
+      >
+        <DarkVeil />
+      </div>
 
-      <BackHomeButton style={{ position: "absolute", top: 20, left: 20, zIndex: 2 }} />
+      <BackHomeButton style={{ position: "fixed", bottom: 20, left: 20, zIndex: 999 }} />
       <StaggeredMenu
         items={navItems}
         socialItems={socialItems}
@@ -136,6 +71,7 @@ function Projects() {
           padding: "20px",
           maxWidth: "900px",
           width: "100%",
+          fontSize: "1.1rem",
           display: "flex",
           flexDirection: "column",
           gap: "16px",
@@ -145,7 +81,7 @@ function Projects() {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{ color: "#61dafb", marginBottom: 4 }}
+          style={{ color: "#ffffff", marginBottom: 2, fontSize: "3.2rem" }}
         >
           Projects
         </motion.h1>
@@ -153,14 +89,16 @@ function Projects() {
         <div style={{ marginTop: 0 }}>
           <SplitText
             text="This is where most of my project are, I have 3 big projects which are my Kinetic sand table, the LED-Cube and lastly
-            the smart magic mirror. along with these projects I have done some small projects that I want to show case. lastly I want 
-            to include projects that I have done through the classes I took during my 4 years of my undergrad."
+            the smart magic mirror. Along with these projects I have done some small projects that I want to show case. Lastly I want 
+            to include projects that I have done through out my classes I took during my 4 years of my undergrad. Each folder can be clicked to
+            open and see more images or details about the project."
             className="text-2xl font-semibold text-center"
             delay={25}
             duration={0.6}
+            fontSize="2.0rem"
             ease="power3.out"
             splitType="chars"
-            from={{ opacity: 0, y: 40 }}
+            from={{ opacity: 0, y: 50 }}
             to={{ opacity: 1, y: 0 }}
             threshold={0.1}
             rootMargin="-100px"
@@ -171,15 +109,15 @@ function Projects() {
 
         <div
           style={{
-            height: "150px",
+            minHeight: "120px",
             position: "relative",
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "center",
             width: "100%",
-            gap: "140px",
+            gap: "80px",
             flexWrap: "wrap",
-            paddingTop: "5px",
+            paddingTop: "4px",
           }}
         >
           <div style={{ textDecoration: "none" }}>
@@ -188,23 +126,7 @@ function Projects() {
               color="#f2c12fff"
               className="test"
               label="LED Cube"
-              items={[
-                <img
-                  key="led1"
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
-                  alt="LED cube prototype"
-                />,
-                <img
-                  key="led2"
-                  src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80"
-                  alt="Soldering LED matrix"
-                />,
-                <img
-                  key="led3"
-                  src="https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=600&q=80"
-                  alt="PCB layout"
-                />,
-              ]}
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -217,21 +139,15 @@ function Projects() {
               labelTarget="_blank"
               labelRel="noopener noreferrer"
               items={[
-                <img
-                  key="sand-controls"
-                  src={sandControls}
-                  alt="Sand table control layout"
-                />,
-                <img
-                  key="sand-pattern"
-                  src={sandLines}
-                  alt="Colored sand pattern from the table"
-                />,
-                <img
-                  key="sand-mechanics"
-                  src={sandInside}
-                  alt="Mechanical interior of sand table"
-                />,
+                <a key="sand-controls-link" href="https://github.com/jhonalej/Kinetic-sand-table.git" target="_blank" rel="noopener noreferrer">
+                  <img src={require('../images/sand_table/controls.jpg')} alt="Sand table control layout" />
+                </a>,
+                <a key="sand-pattern-link" href="https://github.com/jhonalej/Kinetic-sand-table.git" target="_blank" rel="noopener noreferrer">
+                  <img src={require('../images/sand_table/Lines_color.jpg')} alt="Colored sand pattern from the table" />
+                </a>,
+                <a key="sand-mechanics-link" href="https://github.com/jhonalej/Kinetic-sand-table.git" target="_blank" rel="noopener noreferrer">
+                  <img src={require('../images/sand_table/mechanical_inside.jpg')} alt="Mechanical interior of sand table" />
+                </a>,
               ]}
             />
           </div>
@@ -241,43 +157,19 @@ function Projects() {
               color="#ef7a1aff"
               className="test"
               label="Smart Magic Mirror"
-              items={[
-                <img
-                  key="mirror1"
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-                  alt="UI sketch"
-                />,
-                <img
-                  key="mirror2"
-                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=600&q=80"
-                  alt="Code on screen"
-                />,
-                <img
-                  key="mirror3"
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
-                  alt="Electronics bench"
-                />,
-              ]}
+              items={[]}
             />
           </div>
         </div>
 
-        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
-          <CircularGallery
-            items={galleryItems}
-            bend={-1.5}
-            textColor="#ffffff"
-            borderRadius={0.05}
-            scrollEase={0.02}
-          />
-        </div>
+        {/* Circular gallery removed */}
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          style={{ color: "#9fe4ff", marginTop: 24, marginBottom: 12, fontWeight: 600 }}
+          style={{ color: "#ffffff", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "1.4rem" }}
         >
           School Projects
         </motion.h2>
@@ -300,27 +192,11 @@ function Projects() {
               size={1.2}
               color="#8ad6ff"
               className="test"
-              label="4-Wheel drive robot (MAE57)"
+              label="4-Wheel drive robot"
               labelHref="https://github.com/jhonalej/MAE-576-robot.git"
               labelTarget="_blank"
               labelRel="noopener noreferrer"
-              items={[
-                <img
-                  key="robot1"
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
-                  alt="Robot build bench"
-                />,
-                <img
-                  key="robot2"
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
-                  alt="Code review"
-                />,
-                <img
-                  key="robot3"
-                  src="https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=600&q=80"
-                  alt="Team build session"
-                />,
-              ]}
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -328,7 +204,7 @@ function Projects() {
               size={1.2}
               color="#b6c0ff"
               className="test"
-              label="Power Electronics (EE467)"
+              label="Power Electronics"
               items={[
                 <img
                   key="power1"
@@ -353,7 +229,7 @@ function Projects() {
               size={1.2}
               color="#9fe7b6"
               className="test"
-              label="ACV sensor (EE494)"
+              label="ACV sensor"
               items={[
                 <img
                   key="acv1"
@@ -378,24 +254,8 @@ function Projects() {
               size={1.2}
               color="#7cc7ff"
               className="test"
-              label="frogger (EE379)"
-              items={[
-                <img
-                  key="frogger1"
-                  src="https://images.unsplash.com/photo-1527443224154-d8c1f98d60fd?auto=format&fit=crop&w=600&q=80"
-                  alt="Retro arcade cabinet"
-                />,
-                <img
-                  key="frogger2"
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80"
-                  alt="Game code on laptop"
-                />,
-                <img
-                  key="frogger3"
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
-                  alt="LED matrix for game display"
-                />,
-              ]}
+              label="Frogger (EE379)"
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -403,51 +263,22 @@ function Projects() {
               size={1.2}
               color="#ffd27f"
               className="test"
-              label="Servo control (EE478)"
-              items={[
-                <img
-                  key="servo1"
-                  src="https://images.unsplash.com/photo-1582719478145-3caa709e119b?auto=format&fit=crop&w=600&q=80"
-                  alt="Servo motor close-up"
-                />,
-                <img
-                  key="servo2"
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
-                  alt="Bench setup with controllers"
-                />,
-                <img
-                  key="servo3"
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
-                  alt="Breadboard wiring for servo control"
-                />,
-              ]}
+              label="Servo Control (EE478)"
+              items={[]}
             />
           </div>
         </div>
 
-        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
-          <CircularGallery
-            items={schoolGalleryItems}
-            bend={-1.5}
-            textColor="#ffffff"
-            borderRadius={0.05}
-            scrollEase={0.02}
-          />
-        </div>
+        {/* School circular gallery removed */}
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          style={{
-            color: "#a2f0c4",
-            marginTop: 28,
-            marginBottom: 12,
-            fontWeight: 600,
-          }}
+          style={{ color: "#ffffff", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "1.4rem" }}
         >
-          Small Projects
+        Small Projects
         </motion.h2>
 
         <div
@@ -469,23 +300,7 @@ function Projects() {
               color="#ffb3c8"
               className="test"
               label="Portfolio Site"
-              items={[
-                <img
-                  key="portfolio1"
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-                  alt="Design sketch"
-                />,
-                <img
-                  key="portfolio2"
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80"
-                  alt="Code editor"
-                />,
-                <img
-                  key="portfolio3"
-                  src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80"
-                  alt="UI wiring"
-                />,
-              ]}
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -493,24 +308,8 @@ function Projects() {
               size={1.3}
               color="#c2b7ff"
               className="test"
-              label="automatic blinds"
-              items={[
-                <img
-                  key="blinds1"
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-                  alt="Circuit planning"
-                />,
-                <img
-                  key="blinds2"
-                  src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=600&q=80"
-                  alt="Microcontroller wiring"
-                />,
-                <img
-                  key="blinds3"
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
-                  alt="Board layout"
-                />,
-              ]}
+              label="Automatic Blinds"
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -519,23 +318,7 @@ function Projects() {
               color="#ffcfa1"
               className="test"
               label="PCB Design"
-              items={[
-                <img
-                  key="pcb1"
-                  src="https://images.unsplash.com/photo-1555696958-c5049c2c05f9?auto=format&fit=crop&w=600&q=80"
-                  alt="PCB routing"
-                />,
-                <img
-                  key="pcb2"
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
-                  alt="Circuit board close-up"
-                />,
-                <img
-                  key="pcb3"
-                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
-                  alt="Lab tools"
-                />,
-              ]}
+              items={[]}
             />
           </div>
           <div style={{ textDecoration: "none" }}>
@@ -543,37 +326,13 @@ function Projects() {
               size={1.3}
               color="#b6f3ff"
               className="test"
-              label="memory game"
-              items={[
-                <img
-                  key="memory1"
-                  src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80"
-                  alt="Workshop table"
-                />,
-                <img
-                  key="memory2"
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-                  alt="Code on screen"
-                />,
-                <img
-                  key="memory3"
-                  src="https://images.unsplash.com/photo-1523966211575-eb4a017e3b76?auto=format&fit=crop&w=600&q=80"
-                  alt="Team build"
-                />,
-              ]}
+              label="Memory Game"
+              items={[]}
             />
           </div>
         </div>
 
-        <div style={{ height: "320px", position: "relative", marginTop: "-10px", marginBottom: "4px" }}>
-          <CircularGallery
-            items={smallGalleryItems}
-            bend={-1.5}
-            textColor="#ffffff"
-            borderRadius={0.05}
-            scrollEase={0.02}
-          />
-        </div>
+        {/* Small projects circular gallery removed */}
       </div>
     </div>
   );
