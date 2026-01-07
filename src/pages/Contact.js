@@ -1,6 +1,7 @@
 import React from "react";
 import BackHomeButton from "../components/BackHomeButton";
 import StaggeredMenu from "../components/StaggeredMenu";
+import useViewportScale from "../components/useViewportScale";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -15,11 +16,14 @@ const socialItems = [
 ];
 
 function Contact() {
+  const { outerRef, contentRef, scale } = useViewportScale();
   return (
     <div
+      ref={outerRef}
       style={{
         textAlign: "center",
-        minHeight: "100vh",
+        height: "100vh",
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -28,6 +32,7 @@ function Contact() {
         padding: "40px 20px",
         background: "linear-gradient(135deg, #111827, #0b1324)",
         color: "#e5e7eb",
+        boxSizing: "border-box",
       }}
     >
       <BackHomeButton style={{ position: "absolute", top: 20, left: 20 }} />
@@ -38,8 +43,16 @@ function Contact() {
         displaySocials
         displayItemNumbering
       />
-      <h2>Contact Page</h2>
-      <p>Feel free to reach out at contact@jhonram.com!</p>
+      <div
+        ref={contentRef}
+        style={{
+          transform: `scale(${scale})`,
+          transformOrigin: "top center",
+        }}
+      >
+        <h2>Contact Page</h2>
+        <p>Feel free to reach out at contact@jhonram.com!</p>
+      </div>
     </div>
   );
 }

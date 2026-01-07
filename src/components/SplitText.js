@@ -18,6 +18,7 @@ const SplitText = ({
   threshold = 0.1,
   rootMargin = '-100px',
   textAlign = 'center',
+  fontSize,
   tag = 'p',
   onLetterAnimationComplete
 }) => {
@@ -145,7 +146,8 @@ const SplitText = ({
       display: 'inline-block',
       whiteSpace: 'normal',
       wordWrap: 'break-word',
-      willChange: 'transform, opacity'
+      willChange: 'transform, opacity',
+      ...(fontSize ? { fontSize } : {})
     };
     const classes = `split-parent ${className}`;
     switch (tag) {
