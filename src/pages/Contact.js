@@ -2,6 +2,7 @@ import React from "react";
 import BackHomeButton from "../components/BackHomeButton";
 import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
+import DarkVeil from "../components/DarkVeil";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -30,11 +31,23 @@ function Contact() {
         justifyContent: "center",
         position: "relative",
         padding: "40px 20px",
-        background: "linear-gradient(135deg, #111827, #0b1324)",
         color: "#e5e7eb",
         boxSizing: "border-box",
       }}
     >
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <DarkVeil />
+      </div>
       <BackHomeButton style={{ position: "absolute", top: 20, left: 20 }} />
       <StaggeredMenu
         items={navItems}
@@ -48,6 +61,8 @@ function Contact() {
         style={{
           transform: `scale(${scale})`,
           transformOrigin: "top center",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <h2>Contact Page</h2>
