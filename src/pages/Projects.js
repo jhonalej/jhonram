@@ -17,15 +17,14 @@ const navItems = [
 ];
 
 const socialItems = [
-  { label: "GitHub", link: "https://github.com" },
-  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "GitHub", link: "https://github.com/jhonalej" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/jhon-ramirez2003" },
 ];
 
 function Projects() {
   const handleAnimationComplete = () => {
     // SplitText animation finished
   };
-
   const { outerRef, contentRef, scale } = useViewportScale();
 
   // Circular galleries removed
@@ -89,7 +88,7 @@ function Projects() {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{ color: "#ffffff", marginBottom: 2, fontSize: "clamp(2rem, 4vw, 2.6rem)" }}
+          style={{ color: "#61dafb", marginBottom: 2, fontSize: "clamp(2rem, 4vw, 2.6rem)" }}
         >
           Projects
         </motion.h1>
