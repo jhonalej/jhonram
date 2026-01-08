@@ -14,8 +14,8 @@ const navItems = [
 ];
 
 const socialItems = [
-  { label: "GitHub", link: "https://github.com" },
-  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "GitHub", link: "https://github.com/jhonalej" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/jhon-ramirez2003" },
 ];
 
 const timelineItems = [
