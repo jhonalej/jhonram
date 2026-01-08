@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BackHomeButton from "../components/BackHomeButton";
 import DarkVeil from "../components/DarkVeil";
-import SplitText from "../components/SplitText";
+import TextType from "../components/TextType";
 import Folder from "../components/Folder";
 import useViewportScale from "../components/useViewportScale";
 // CircularGallery removed per request
@@ -22,12 +22,15 @@ const socialItems = [
 ];
 
 function Projects() {
-  const handleAnimationComplete = () => {
-    // SplitText animation finished
-  };
   const { outerRef, contentRef, scale } = useViewportScale();
+  const introText = [
+    "This is where most of my project are, I have 3 big projects which are my Kinetic sand table, the LED-Cube and lastly",
+    "the smart magic mirror. Along with these projects I have done some small projects that I want to show case. Lastly I want",
+    "to include projects that I have done through out my classes I took during my 4 years of my undergrad. Each folder can be clicked to",
+    "open and see more images or details about the project.",
+  ].join(" ");
 
-  // Circular galleries removed
+            
   return (
     <div
       ref={outerRef}
@@ -94,24 +97,18 @@ function Projects() {
         </motion.h1>
 
         <div style={{ marginTop: 0, maxWidth: "1200px", marginLeft: "auto", marginRight: "auto", width: "100%" }}>
-          <SplitText
-            text="This is where most of my project are, I have 3 big projects which are my Kinetic sand table, the LED-Cube and lastly
-            the smart magic mirror. Along with these projects I have done some small projects that I want to show case. Lastly I want 
-            to include projects that I have done through out my classes I took during my 4 years of my undergrad. Each folder can be clicked to
-            open and see more images or details about the project."
-            className="text-2xl font-semibold text-center"
-            delay={25}
-            duration={0.6}
-            fontSize="clamp(1rem, 1.6vw, 1.4rem)"
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 50 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-            onLetterAnimationComplete={handleAnimationComplete}
-          />
+          <div style={{ fontSize: "clamp(1rem, 1.6vw, 1.4rem)", textAlign: "center", position: "relative" }}>
+            <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
+            <div style={{ position: "absolute", inset: 0 }}>
+            <TextType
+              text={introText}
+              className="text-2xl font-semibold text-center"
+              cursorCharacter="▎"
+              variableSpeedEnabled
+              speed={20}
+            />
+            </div>
+          </div>
         </div>
 
         <div

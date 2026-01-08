@@ -4,7 +4,7 @@ import BackHomeButton from "../components/BackHomeButton";
 import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
 import DarkVeil from "../components/DarkVeil";
-import SplitText from "../components/SplitText";
+import TextType from "../components/TextType";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -48,6 +48,12 @@ const timelineItems = [
 
 function FutureProjects() {
   const { outerRef, contentRef, scale } = useViewportScale();
+  const introText = [
+    "Here are some of the projects I am planning to work on in the near future.",
+    "below is a timeline outlining which projects are slated for development in the coming months.",
+    "Along with each project, I've included a brief description and its current status.",
+    "I will prosvide updates as these projects progress on my social media platforms.",
+  ].join(" ");
   return (
     <div
       ref={outerRef}
@@ -116,23 +122,18 @@ function FutureProjects() {
             letterSpacing: "0.06em",
           }}
         >
-          <SplitText
-            text=" Here are some of the projects I am planning to work on in the near future. 
-            below is a timeline outlining which projects are slated for development in the coming months.
-             Along with each project, I've included a brief description and its current status. 
-             I will prosvide updates as these projects progress on my social media platforms."
-            className="text-2xl font-semibold text-center"
-            delay={20}
-            duration={0.5}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 30 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-            fontSize="1.7rem"
-          />
+          <div style={{ fontSize: "1.7rem", position: "relative" }}>
+            <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
+            <div style={{ position: "absolute", inset: 0 }}>
+              <TextType
+                text={introText}
+                className="text-2xl font-semibold text-center"
+                cursorCharacter="▎"
+                variableSpeedEnabled
+                speed={20}
+              />
+            </div>
+          </div>
         </div>
         <div
           style={{
