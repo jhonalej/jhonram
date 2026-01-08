@@ -4,7 +4,7 @@ import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
 import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
-import SplitText from "../components/SplitText";
+import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -130,21 +130,20 @@ function Contact() {
               alignItems: "center",
             }}
           >
-            <SplitText
-              text="Contact Me!"
-              tag="h2"
-              textAlign="center"
-              delay={20}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
+            <motion.h2
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               style={{
                 margin: 0,
                 fontSize: "clamp(2rem, 4vw, 2.6rem)",
                 color: "#61dafb",
                 fontWeight: 700,
+                textAlign: "center",
               }}
-            />
+            >
+              Contact Me!
+            </motion.h2>
             <div
               aria-hidden
               style={{

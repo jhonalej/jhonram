@@ -1,0 +1,32 @@
+.text-type-wrapper {
+  display: inline-block;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.text-type-text {
+  display: inline;
+}
+
+.text-type-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: text-type-blink 1s steps(1, end) infinite;
+}
+
+.text-type-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@keyframes text-type-blink {
+  50% {
+    opacity: 0;
+  }
+}

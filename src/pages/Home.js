@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SplitText from "../components/SplitText";
+import TextType from "../components/TextType";
 import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
 import StaggeredMenu from "../components/StaggeredMenu";
@@ -19,10 +19,14 @@ const socialItems = [
 ];
 
 function Home() {
-  const handleAnimationComplete = () => {
-    // SplitText animation finished
-  };
   const { outerRef, contentRef, scale } = useViewportScale();
+  const introText = [
+    "Welcome to my personal portfolio! Here, I want to showcase all",
+    "of the projects that I have done through my school career as well as",
+    "any future projects that I want to work on. The purpose of this",
+    "porfolio is not just to showcase everything I have done but also",
+    "ensipre anyone and everyone to do a projects like these.",
+  ].join(" ");
 
   return (
     <div
@@ -126,24 +130,18 @@ function Home() {
               padding: "0 12px",
             }}
           >
-            <SplitText
-              text="Welcome to my personal portfolio! Here, I want to showcase all 
-              of the projects that I have done through my school career as well as 
-              any future projects that I want to work on. The purpose of this
-              porfolio is not just to showcase everything I have done but also 
-              ensipre anyone and everyone to do a projects like these."
-              className="text-2xl font-semibold text-center"
-              delay={25}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-              onLetterAnimationComplete={handleAnimationComplete}
-            />
+            <div style={{ position: "relative" }}>
+              <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
+              <div style={{ position: "absolute", inset: 0 }}>
+                <TextType
+                  text={introText}
+                  className="text-2xl font-semibold text-center"
+                  cursorCharacter="▎"
+                  variableSpeedEnabled
+                  speed={20}
+                />
+              </div>
+            </div>
           </motion.div>
 
           {/* Buttons Section */}
