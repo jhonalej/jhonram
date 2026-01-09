@@ -137,7 +137,7 @@ function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              style={{ color: "#ffffff", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
+              style={{ color: "#61dafb", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
             >
               School Projects
             </motion.h2>
@@ -221,7 +221,7 @@ function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              style={{ color: "#ffffff", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
+              style={{ color: "#61dafb", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
             >
               Major Independent Projects
             </motion.h2>
@@ -297,7 +297,7 @@ function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              style={{ color: "#ffffff", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
+              style={{ color: "#61dafb", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
             >
               Minor Independent Projects
             </motion.h2>

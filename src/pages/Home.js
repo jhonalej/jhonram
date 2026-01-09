@@ -5,6 +5,7 @@ import DarkVeil from "../components/DarkVeil";
 import ProfileCard from "../components/ProfileCard";
 import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
+import BounceCards from "../components/BounceCards";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -27,6 +28,12 @@ function Home() {
     "porfolio is not just to showcase everything I have done but also",
     "ensipre anyone and everyone to do a projects like these.",
   ].join(" ");
+  const bounceImages = [
+    require("../images/sand_table/controls.jpg"),
+    require("../images/sand_table/Lines_color.jpg"),
+    require("../images/sand_table/mechanical_inside.jpg"),
+    require("../images/sand_table/christmas_lines.jpg"),
+  ];
 
   return (
     <div
@@ -99,22 +106,74 @@ function Home() {
           style={{
             flexGrow: 1,
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row-reverse",
             alignItems: "center",
             justifyContent: "center",
             padding: "40px 20px",
             position: "relative",
             zIndex: 1,
-            gap: "36px",
+            gap: "clamp(32px, 6vw, 80px)",
+            flexWrap: "wrap",
           }}
         >
-          <ProfileCard
-            name="Jhon Ramirez"
-            title="Electrical Engineer, B.S."
-            location="New York"
-            image="/profile.jpg"
-            tags={["Circuit Desing", "C/C++", "PCB Desing", "Power Electronics"]}
-          />
+          <div
+            style={{
+              flex: "0 1 420px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "36px",
+            }}
+          >
+            <ProfileCard
+              name="Jhon Ramirez"
+              title="Electrical Engineer, B.S."
+              location="New York"
+              image="/profile.jpg"
+              tags={["Circuit Desing", "C/C++", "PCB Desing", "Power Electronics"]}
+            />
+
+            {/* Buttons Section */}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              {[
+                { text: "Projects", link: "#/projects" },
+                { text: "Future Projects", link: "#/future-projects" },
+                { text: "Contact Info", link: "#/contact" },
+              ].map((btn, index) => (
+                <motion.a
+                  key={btn.text}
+                  href={btn.link}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.15 + 0.8, duration: 0.4 }}
+                  whileHover={{ scale: 1.08 }}
+                  style={{
+                    display: "inline-block",
+                    padding: "15px 40px",
+                    backgroundColor: "#61dafb",
+                    color: "#0b1220",
+                    borderRadius: "30px",
+                    fontSize: "1.2rem",
+                    fontWeight: "600",
+                    textDecoration: "none",
+                    transition: "0.3s ease",
+                    boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
+                  }}
+                >
+                  {btn.text}
+                </motion.a>
+              ))}
+            </div>
+          </div>
 
           {/* Animated Description */}
           <motion.div
@@ -122,6 +181,7 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             style={{
+              flex: "1 1 480px",
               maxWidth: "780px",
               textAlign: "center",
               color: "#e1e8f4",
@@ -130,61 +190,23 @@ function Home() {
               padding: "0 12px",
             }}
           >
-            <div style={{ position: "relative" }}>
-              <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
-              <div style={{ position: "absolute", inset: 0 }}>
-                <TextType
-                  text={introText}
-                  className="text-2xl font-semibold text-center"
-                  cursorCharacter="▎"
-                  variableSpeedEnabled
-                  speed={20}
-                />
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ position: "relative", marginBottom: "24px" }}>
+                <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
+                <div style={{ position: "absolute", inset: 0 }}>
+                  <TextType
+                    text={introText}
+                    className="text-2xl font-semibold text-center"
+                    cursorCharacter="▎"
+                    variableSpeedEnabled
+                    speed={20}
+                  />
+                </div>
               </div>
+              <BounceCards images={bounceImages} />
             </div>
           </motion.div>
 
-          {/* Buttons Section */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "20px",
-              marginTop: "10px",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
-            {[
-              { text: "Projects", link: "#/projects" },
-              { text: "Future Projects", link: "#/future-projects" },
-              { text: "Contact Info", link: "#/contact" },
-            ].map((btn, index) => (
-              <motion.a
-                key={btn.text}
-                href={btn.link}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 + 1, duration: 0.6 }}
-                whileHover={{ scale: 1.08 }}
-                style={{
-                  display: "inline-block",
-                  padding: "15px 40px",
-                  backgroundColor: "#61dafb",
-                  color: "#0b1220",
-                  borderRadius: "30px",
-                  fontSize: "1.2rem",
-                  fontWeight: "600",
-                  textDecoration: "none",
-                  transition: "0.3s ease",
-                  boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
-                }}
-              >
-                {btn.text}
-              </motion.a>
-            ))}
-          </div>
         </div>
       </div>
     </div>
