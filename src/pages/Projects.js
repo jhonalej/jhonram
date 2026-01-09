@@ -7,6 +7,7 @@ import Folder from "../components/Folder";
 import useViewportScale from "../components/useViewportScale";
 // CircularGallery removed per request
 import StaggeredMenu from "../components/StaggeredMenu";
+import "./Projects.css";
 
 
 const navItems = [
@@ -34,9 +35,10 @@ function Projects() {
   return (
     <div
       ref={outerRef}
+      className="projects-page"
       style={{
         position: "relative",
-        height: "100vh",
+        minHeight: "100vh",
         overflow: "hidden",
         color: "#fff",
         display: "flex",
@@ -72,6 +74,7 @@ function Projects() {
 
       <div
         ref={contentRef}
+        className="projects-content"
         style={{
           position: "relative",
           zIndex: 2,
@@ -112,6 +115,7 @@ function Projects() {
         </div>
 
         <div
+          className="projects-sections"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -123,6 +127,7 @@ function Projects() {
           }}
         >
           <div
+            className="projects-group"
             style={{
               flex: "1 1 360px",
               maxWidth: "480px",
@@ -142,16 +147,10 @@ function Projects() {
               School Projects
             </motion.h2>
             <div
+              className="projects-folder-grid"
               style={{
                 minHeight: "120px",
                 position: "relative",
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                columnGap: "clamp(32px, 5vw, 76px)",
-                rowGap: "clamp(36px, 6vh, 80px)",
-                alignItems: "start",
-                justifyItems: "center",
-                width: "100%",
                 paddingTop: "4px",
               }}
             >
@@ -207,6 +206,7 @@ function Projects() {
           </div>
 
           <div
+            className="projects-group"
             style={{
               flex: "1 1 360px",
               maxWidth: "480px",
@@ -226,16 +226,10 @@ function Projects() {
               Major Independent Projects
             </motion.h2>
             <div
+              className="projects-folder-grid"
               style={{
                 minHeight: "120px",
                 position: "relative",
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                columnGap: "clamp(32px, 5vw, 76px)",
-                rowGap: "clamp(36px, 6vh, 80px)",
-                alignItems: "start",
-                justifyItems: "center",
-                width: "100%",
                 paddingTop: "4px",
               }}
             >
@@ -283,6 +277,7 @@ function Projects() {
           </div>
 
           <div
+            className="projects-group"
             style={{
               flex: "1 1 360px",
               maxWidth: "480px",
@@ -302,16 +297,10 @@ function Projects() {
               Minor Independent Projects
             </motion.h2>
             <div
+              className="projects-folder-grid"
               style={{
                 minHeight: "120px",
                 position: "relative",
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                columnGap: "clamp(32px, 5vw, 76px)",
-                rowGap: "clamp(36px, 6vh, 80px)",
-                alignItems: "start",
-                justifyItems: "center",
-                width: "100%",
                 paddingTop: "4px",
               }}
             >
