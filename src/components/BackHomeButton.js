@@ -6,9 +6,7 @@ const BackHomeButton = ({ style = {} }) => {
     display: "inline-flex",
     padding: "2px",
     borderRadius: "999px",
-    background:
-      "linear-gradient(120deg, rgba(97,218,251,0.85), rgba(139,92,246,0.65), rgba(59,130,246,0.7))",
-    boxShadow: "0 10px 26px rgba(0,0,0,0.3)",
+    background: "transparent",
     transition: "transform 180ms ease",
   };
 
@@ -17,36 +15,36 @@ const BackHomeButton = ({ style = {} }) => {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "8px",
-    padding: "8px 14px",
-    minWidth: "120px",
-    borderRadius: "999px",
-    background: "rgba(10, 14, 23, 0.92)",
+    width: "44px",
+    height: "44px",
+    borderRadius: "14px",
+    background: "rgba(18, 24, 34, 0.92)",
     color: "#e6f7ff",
     border: "1px solid rgba(255,255,255,0.08)",
     backdropFilter: "blur(12px)",
     textDecoration: "none",
-    fontWeight: 700,
-    letterSpacing: "0.02em",
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08)",
     overflow: "hidden",
   };
 
   const iconWrap = {
-    width: "26px",
-    height: "26px",
+    width: "34px",
+    height: "34px",
     borderRadius: "999px",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    background:
-      "linear-gradient(145deg, rgba(97,218,251,0.9), rgba(59,130,246,0.95))",
+    background: "rgba(10, 14, 23, 0.95)",
     boxShadow: "0 8px 20px rgba(0,0,0,0.35)",
     border: "none",
   };
 
   return (
-    <Link to="/" style={{ textDecoration: "none", display: "inline-block", ...style }}>
+    <Link
+      to="/"
+      aria-label="Go to home page"
+      style={{ textDecoration: "none", display: "inline-block", ...style }}
+    >
       <span
         style={ringStyle}
         onMouseEnter={(e) => {
@@ -67,19 +65,19 @@ const BackHomeButton = ({ style = {} }) => {
           />
           <span style={iconWrap} aria-hidden="true">
             <svg
-              width="14"
-              height="14"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#0b1220"
-              strokeWidth="2.2"
+              stroke="#ffffff"
+              strokeWidth="2.1"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M15 18l-6-6 6-6" />
+              <path d="M3 10.5L12 3l9 7.5" />
+              <path d="M5 10.5V21h5v-6h4v6h5V10.5" />
             </svg>
           </span>
-          <span style={{ position: "relative", zIndex: 1 }}>Back to Home</span>
         </span>
       </span>
     </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import BackHomeButton from "../components/BackHomeButton";
 import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
-import DarkVeil from "../components/DarkVeil";
+import Hyperspeed from "../components/Hyperspeed";
 import ProfileCard from "../components/ProfileCard";
 import { motion } from "framer-motion";
 
@@ -84,9 +84,10 @@ function Contact() {
           height: "100%",
           zIndex: 0,
           pointerEvents: "none",
+          backgroundColor: "#000",
         }}
       >
-        <DarkVeil />
+        <Hyperspeed />
       </div>
       <BackHomeButton style={{ position: "fixed", bottom: 20, left: 20, zIndex: 999 }} />
       <StaggeredMenu
@@ -167,12 +168,12 @@ function Contact() {
                     gridColumn: index === contactIconItems.length - 1 ? "1 / -1" : undefined,
                     justifySelf: index === contactIconItems.length - 1 ? "center" : undefined,
                     borderRadius: "14px",
-                    background: "rgba(255, 200, 140, 0.18)",
-                    border: "1px solid rgba(255, 214, 170, 0.28)",
+                    background: "rgba(8, 10, 14, 0.72)",
+                    border: "1px solid rgba(255, 214, 170, 0.6)",
                     boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
                     display: "grid",
                     placeItems: "center",
-                    color: "rgba(255, 229, 200, 0.95)",
+                    color: "#fffaf2",
                     textDecoration: "none",
                   }}
                 >

@@ -193,8 +193,8 @@ function FutureProjects() {
                     marginTop: "14px",
                     padding: "14px 16px",
                     borderRadius: "14px",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.14)",
+                    background: "rgba(8, 10, 14, 0.72)",
+                    border: "1px solid rgba(255, 255, 255, 0.18)",
                     boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
                     minHeight: "140px",
                     width: "100%",
@@ -211,13 +211,13 @@ function FutureProjects() {
                   >
                     {item.timeframe}
                   </div>
-                  <div style={{ fontWeight: 700, fontSize: "1.05rem", marginTop: "6px" }}>
+                  <div style={{ fontWeight: 700, fontSize: "1.05rem", marginTop: "6px", color: "#61dafb" }}>
                     {item.title}
                   </div>
                   <div
                     style={{
                       fontSize: "0.95rem",
-                      color: "rgba(255,255,255,0.8)",
+                      color: "#ffffff",
                       marginTop: "8px",
                       lineHeight: "1.4",
                     }}
