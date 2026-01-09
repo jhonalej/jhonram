@@ -316,9 +316,12 @@
 
 @media (max-width: 640px) {
   .staggered-menu-panel {
-    width: calc(100vw - 24px);
+    position: fixed;
+    top: 12px;
     right: 12px;
     left: 12px;
+    width: auto;
+    max-height: calc(100vh - 24px);
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {

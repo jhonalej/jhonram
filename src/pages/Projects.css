@@ -1,8 +1,7 @@
 .projects-folder-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: clamp(32px, 5vw, 76px);
-  row-gap: clamp(36px, 6vh, 80px);
+  gap: clamp(28px, 4vw, 64px);
   align-items: start;
   justify-items: center;
   width: 100%;
@@ -11,16 +10,24 @@
 @media (max-width: 1100px) {
   .projects-folder-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 4vw, 56px);
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 720px) {
   .projects-sections {
     justify-content: center;
   }
 
   .projects-folder-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(22px, 6vw, 48px);
+  }
+}
+
+@media (max-width: 420px) {
+  .projects-folder-grid {
     grid-template-columns: 1fr;
-    row-gap: clamp(24px, 4vh, 48px);
+    row-gap: clamp(24px, 6vw, 40px);
   }
 }
