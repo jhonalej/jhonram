@@ -5,6 +5,7 @@ import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
 import DarkVeil from "../components/DarkVeil";
 import TextType from "../components/TextType";
+import "./FutureProjects.css";
 
 const navItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -57,8 +58,9 @@ function FutureProjects() {
   return (
     <div
       ref={outerRef}
+      className="future-projects-page"
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         overflow: "visible",
         color: "#fff",
         display: "flex",
@@ -93,6 +95,7 @@ function FutureProjects() {
       />
       <div
         ref={contentRef}
+        className="future-projects-content"
         style={{
           transform: `scale(${scale})`,
           transformOrigin: "top center",
@@ -122,7 +125,7 @@ function FutureProjects() {
             letterSpacing: "0.06em",
           }}
         >
-          <div style={{ fontSize: "1.7rem", position: "relative" }}>
+          <div style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.7rem)", position: "relative" }}>
             <p style={{ margin: 0, visibility: "hidden" }}>{introText}</p>
             <div style={{ position: "absolute", inset: 0 }}>
               <TextType
@@ -146,6 +149,7 @@ function FutureProjects() {
         >
           <div
             aria-hidden
+            className="future-projects-line"
             style={{
               position: "absolute",
               top: "34px",
@@ -158,6 +162,7 @@ function FutureProjects() {
             }}
           />
           <div
+            className="future-projects-items"
             style={{
               display: "flex",
               alignItems: "flex-start",
@@ -170,6 +175,7 @@ function FutureProjects() {
             {timelineItems.map((item) => (
               <div
                 key={item.title}
+                className="future-projects-item"
                 style={{
                   flex: "1 1 0",
                   minWidth: "200px",
@@ -189,6 +195,7 @@ function FutureProjects() {
                   }}
                 />
                 <div
+                  className="future-projects-card"
                   style={{
                     marginTop: "14px",
                     padding: "14px 16px",

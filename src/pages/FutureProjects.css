@@ -1,0 +1,23 @@
+.future-projects-items {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .future-projects-items {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .future-projects-item {
+    width: 100%;
+    min-width: 0 !important;
+  }
+
+  .future-projects-card {
+    width: 100%;
+  }
+
+  .future-projects-line {
+    display: none;
+  }
+}
