@@ -1,7 +1,7 @@
 .projects-folder-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 4vw, 64px);
+  gap: clamp(36px, 5vw, 80px);
   align-items: start;
   justify-items: center;
   width: 100%;
@@ -10,7 +10,7 @@
 @media (max-width: 1100px) {
   .projects-folder-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(24px, 4vw, 56px);
+    gap: clamp(30px, 5vw, 64px);
   }
 }
 
@@ -21,13 +21,13 @@
 
   .projects-folder-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(22px, 6vw, 48px);
+    gap: clamp(26px, 7vw, 52px);
   }
 }
 
 @media (max-width: 420px) {
   .projects-folder-grid {
     grid-template-columns: 1fr;
-    row-gap: clamp(24px, 6vw, 40px);
+    row-gap: clamp(28px, 7vw, 44px);
   }
 }

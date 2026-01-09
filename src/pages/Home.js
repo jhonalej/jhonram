@@ -71,6 +71,26 @@ function Home() {
         displayItemNumbering
       />
 
+      {/* Top Header */}
+      <header
+        style={{
+          backgroundColor: "rgba(5, 8, 15, 0.7)",
+          backdropFilter: "blur(10px)",
+          color: "#eaf3ff",
+          textAlign: "center",
+          padding: "20px 0",
+          fontWeight: "700",
+          fontSize: "1.8rem",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+          zIndex: 2,
+          position: "relative",
+          width: "100%",
+        }}
+      >
+        Jhon Ramirez
+      </header>
+
       <div
         ref={contentRef}
         style={{
@@ -82,25 +102,6 @@ function Home() {
           flexGrow: 1,
         }}
       >
-        {/* Top Header */}
-        <header
-          style={{
-            backgroundColor: "rgba(5, 8, 15, 0.7)",
-            backdropFilter: "blur(10px)",
-            color: "#eaf3ff",
-            textAlign: "center",
-            padding: "20px 0",
-            fontWeight: "700",
-            fontSize: "1.8rem",
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-            zIndex: 2,
-            position: "relative",
-          }}
-        >
-          Jhon Ramirez
-        </header>
-
         {/* Hero Section */}
         <div
           style={{
