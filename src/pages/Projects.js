@@ -163,7 +163,17 @@ function Projects() {
                   labelHref="https://github.com/jhonalej/MAE-576-robot.git"
                   labelTarget="_blank"
                   labelRel="noopener noreferrer"
-                  items={[]}
+                  items={[
+                    <a key="mae-576-top-view-link" href="https://github.com/jhonalej/MAE-576-robot.git" target="_blank" rel="noopener noreferrer">
+                      <img src={require('../images/MAE 576 robot/top View.jpeg')} alt="Top view of MAE 576 robot" />
+                    </a>,
+                    <a key="mae-576-top-view-wheels-link" href="https://github.com/jhonalej/MAE-576-robot.git" target="_blank" rel="noopener noreferrer">
+                      <img src={require('../images/MAE 576 robot/top view with wheels.jpeg')} alt="MAE 576 robot with wheels attached" />
+                    </a>,
+                    <a key="mae-576-wheels-link" href="https://github.com/jhonalej/MAE-576-robot.git" target="_blank" rel="noopener noreferrer">
+                      <img src={require('../images/MAE 576 robot/wheels_2jpeg.jpeg')} alt="Close-up of MAE 576 robot wheels" />
+                    </a>,
+                  ]}
                 />
               </div>
               <div style={{ textDecoration: "none" }}>
@@ -270,7 +280,32 @@ function Projects() {
                   color="#ef7a1aff"
                   className="test"
                   label="Smart Magic Mirror"
-                  items={[]}
+                  items={[
+                    <a
+                      key="smart-mirror-default-link"
+                      href="https://github.com/jhonalej/Smart_magic_mirror"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/Smart Mirror/Defualt page.png')} alt="Smart mirror default page layout" />
+                    </a>,
+                    <a
+                      key="smart-mirror-ai-example-link"
+                      href="https://github.com/jhonalej/Smart_magic_mirror"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/Smart Mirror/AI_example.png')} alt="Smart mirror AI demo interface" />
+                    </a>,
+                    <a
+                      key="smart-mirror-ai-example-2-link"
+                      href="https://github.com/jhonalej/Smart_magic_mirror"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/Smart Mirror/AI_example_2.png')} alt="Smart mirror AI demo with custom response" />
+                    </a>,
+                  ]}
                 />
               </div>
             </div>

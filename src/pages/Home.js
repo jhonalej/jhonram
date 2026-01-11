@@ -32,7 +32,8 @@ function Home() {
     require("../images/sand_table/controls.jpg"),
     require("../images/sand_table/Lines_color.jpg"),
     require("../images/sand_table/mechanical_inside.jpg"),
-    require("../images/sand_table/christmas_lines.jpg"),
+    require("../images/Smart Mirror/Defualt page.png"),
+    require("../images/MAE 576 robot/top view with wheels.jpeg"),
   ];
 
   return (
