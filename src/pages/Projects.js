@@ -160,9 +160,6 @@ function Projects() {
                   color="#8ad6ff"
                   className="test"
                   label="4-Wheel Drive Robot"
-                  labelHref="https://github.com/jhonalej/MAE-576-robot.git"
-                  labelTarget="_blank"
-                  labelRel="noopener noreferrer"
                   items={[
                     <a key="mae-576-top-view-link" href="https://github.com/jhonalej/MAE-576-robot.git" target="_blank" rel="noopener noreferrer">
                       <img src={require('../images/MAE 576 robot/top View.jpeg')} alt="Top view of MAE 576 robot" />
@@ -249,7 +246,32 @@ function Projects() {
                   color="#f2c12fff"
                   className="test"
                   label="LED Cube"
-                  items={[]}
+                  items={[
+                    <a
+                      key="led-cube-circuit-link"
+                      href="https://github.com/jhonalej/LED_cube.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/LED_cube/new_circuit .jpeg')} alt="LED cube circuit layout" />
+                    </a>,
+                    <a
+                      key="led-cube-side-view-link"
+                      href="https://github.com/jhonalej/LED_cube.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/LED_cube/side view.jpeg')} alt="Side view of the LED cube" />
+                    </a>,
+                    <a
+                      key="led-cube-assembled-link"
+                      href="https://github.com/jhonalej/LED_cube.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={require('../images/LED_cube/LED_CUBE.jpeg')} alt="Assembled LED cube" />
+                    </a>,
+                  ]}
                 />
               </div>
               <div style={{ textDecoration: "none" }}>
@@ -258,9 +280,6 @@ function Projects() {
                   color="#e7913bff"
                   className="test"
                   label="Kinetic Sand Table"
-                  labelHref="https://github.com/jhonalej/Kinetic-sand-table.git"
-                  labelTarget="_blank"
-                  labelRel="noopener noreferrer"
                   items={[
                     <a key="sand-controls-link" href="https://github.com/jhonalej/Kinetic-sand-table.git" target="_blank" rel="noopener noreferrer">
                       <img src={require('../images/sand_table/controls.jpg')} alt="Sand table control layout" />
