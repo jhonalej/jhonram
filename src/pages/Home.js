@@ -31,7 +31,7 @@ function Home() {
   const bounceImages = [
     require("../images/sand_table/controls.jpg"),
     require("../images/sand_table/Lines_color.jpg"),
-    require("../images/sand_table/mechanical_inside.jpg"),
+    require("../images/LED_cube/side view.jpeg"),
     require("../images/Smart Mirror/Defualt page.png"),
     require("../images/MAE 576 robot/top view with wheels.jpeg"),
   ];
