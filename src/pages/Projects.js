@@ -185,15 +185,6 @@ function Projects() {
               <div style={{ textDecoration: "none" }}>
                 <Folder
                   size={1.4}
-                  color="#9fe7b6"
-                  className="test"
-                  label="ACV Sensor"
-                  items={[]}
-                />
-              </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.4}
                   color="#7cc7ff"
                   className="test"
                   label="Frogger (EE379)"
@@ -361,27 +352,9 @@ function Projects() {
               <div style={{ textDecoration: "none" }}>
                 <Folder
                   size={1.3}
-                  color="#ffb3c8"
-                  className="test"
-                  label="Portfolio Site"
-                  items={[]}
-                />
-              </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.3}
                   color="#c2b7ff"
                   className="test"
                   label="Automatic Blinds"
-                  items={[]}
-                />
-              </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.3}
-                  color="#ffcfa1"
-                  className="test"
-                  label="PCB Design"
                   items={[]}
                 />
               </div>
