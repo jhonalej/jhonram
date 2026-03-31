@@ -30,6 +30,41 @@ function Projects() {
     "to include projects that I have done through out my classes I took during my 4 years of my undergrad. Each folder can be clicked to",
     "open and see more images or details about the project.",
   ].join(" ");
+  const powerElectronicsItems = [
+    {
+      key: "power-electronics-buck",
+      title: "Buck Converter",
+      lines: ["PWM tuning", "Vin 24V", "Vout 12V", "Eff. 91%"],
+    },
+    {
+      key: "power-electronics-rectifier",
+      title: "Rectifier Lab",
+      lines: ["Bridge test", "Cap filter", "Ripple check", "Load sweep"],
+    },
+    {
+      key: "power-electronics-mosfet",
+      title: "MOSFET Drive",
+      lines: ["Gate timing", "Thermal notes", "Current limit", "Scope log"],
+    },
+  ].map(({ key, title, lines }) => (
+    <a
+      key={key}
+      href="https://github.com/jhonalej/Power_electronics.git"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="paper-note-link"
+      aria-label={`${title} notes`}
+    >
+      <div className="paper-note">
+        <div className="paper-note__heading">{title}</div>
+        {lines.map((line, index) => (
+          <div key={`${key}-${index}`} className="paper-note__text">
+            {line}
+          </div>
+        ))}
+      </div>
+    </a>
+  ));
 
             
   return (
@@ -119,7 +154,7 @@ function Projects() {
           style={{
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
             width: "100%",
             gap: "clamp(40px, 8vw, 96px)",
             flexWrap: "wrap",
@@ -179,27 +214,28 @@ function Projects() {
                   color="#b6c0ff"
                   className="test"
                   label="Power Electronics"
-                  items={[]}
+                  items={powerElectronicsItems}
                 />
               </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.4}
-                  color="#7cc7ff"
-                  className="test"
-                  label="Frogger (EE379)"
-                  items={[]}
-                />
-              </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.4}
-                  color="#ffd27f"
-                  className="test"
-                  label="Servo Control (EE478)"
-                  items={[]}
-                />
-              </div>
+               <div style={{ textDecoration: "none" }}>
+                 <Folder
+                   size={1.4}
+                   color="#7cc7ff"
+                   className="test"
+                   label="Frogger (EE379)"
+                   items={[
+                     <a key="frogger-gameplay-link" href="https://github.com/jhonalej/Frogger_project.git" target="_blank" rel="noopener noreferrer">
+                       <img src={require('../images/frogger/frogger_1.jpeg')} alt="Frogger gameplay screen capture" />
+                     </a>,
+                     <a key="frogger-variation-link" href="https://github.com/jhonalej/Frogger_project.git" target="_blank" rel="noopener noreferrer">
+                       <img src={require('../images/frogger/frogger_2.jpeg')} alt="Frogger project gameplay variation" />
+                     </a>,
+                     <a key="frogger-full-view-link" href="https://github.com/jhonalej/Frogger_project.git" target="_blank" rel="noopener noreferrer">
+                       <img src={require('../images/frogger/full frogger.jpg')} alt="Full view of the Frogger project" />
+                     </a>,
+                   ]}
+                 />
+               </div>
             </div>
           </div>
 
@@ -316,55 +352,6 @@ function Projects() {
                       <img src={require('../images/Smart Mirror/AI_example_2.png')} alt="Smart mirror AI demo with custom response" />
                     </a>,
                   ]}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="projects-group"
-            style={{
-              flex: "1 1 360px",
-              maxWidth: "480px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "clamp(10px, 2vh, 16px)",
-            }}
-          >
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
-              style={{ color: "#61dafb", marginTop: 1, marginBottom: 12, fontWeight: 700, fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)" }}
-            >
-              Minor Independent Projects
-            </motion.h2>
-            <div
-              className="projects-folder-grid"
-              style={{
-                minHeight: "120px",
-                position: "relative",
-                paddingTop: "4px",
-              }}
-            >
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.3}
-                  color="#c2b7ff"
-                  className="test"
-                  label="Automatic Blinds"
-                  items={[]}
-                />
-              </div>
-              <div style={{ textDecoration: "none" }}>
-                <Folder
-                  size={1.3}
-                  color="#b6f3ff"
-                  className="test"
-                  label="Memory Game"
-                  items={[]}
                 />
               </div>
             </div>
