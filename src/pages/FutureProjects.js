@@ -40,10 +40,10 @@ const timelineItems = [
     description: "Develop a secure, high-speed VPN service focusing on user privacy and ease of use. With plans for cross-platform compatibility. using a Raspberry Pi as a server.",
   },
   {
-    title: "OpenCV Dartboard Game",
+    title: "Ball Balancing Robot (Ballbot)",
     timeframe: "4",
     status: "Planned",
-    description: "Create an interactive dartboard game using OpenCV for real-time score tracking and feedback. Implementing computer vision to enhance gameplay experience. Using a Raspberry Pi for processing. and connection to a web app.",
+    description: "Build a ball balancing robot focused on feedback control, sensor fusion, and real-time stability tuning. This will be part of a longer-term robotics project.",
   }
 ];
 
