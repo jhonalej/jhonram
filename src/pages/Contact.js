@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BackHomeButton from "../components/BackHomeButton";
 import StaggeredMenu from "../components/StaggeredMenu";
 import useViewportScale from "../components/useViewportScale";
@@ -57,8 +57,33 @@ const contactIconItems = [
   },
 ];
 
+const resumeUrl = `${process.env.PUBLIC_URL || ""}/resume.pdf`;
+const resumePreviewUrl = `${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+const resumeViewerUrl = `${process.env.PUBLIC_URL || ""}/#/resume`;
+
 function Contact() {
   const { outerRef, contentRef, scale } = useViewportScale();
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isResumeOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsResumeOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isResumeOpen]);
+
   return (
     <div
       ref={outerRef}
@@ -114,92 +139,364 @@ function Contact() {
             width: "100%",
             maxWidth: "1100px",
             display: "flex",
+            flexDirection: "column",
             alignItems: "flex-start",
             justifyContent: "center",
-            gap: "20px",
-            flexWrap: "wrap",
+            gap: "24px",
           }}
         >
           <div
             style={{
-              flex: "1 1 320px",
-              maxWidth: "360px",
-              textAlign: "center",
+              width: "100%",
               display: "flex",
-              flexDirection: "column",
-              gap: "16px",
-              alignItems: "center",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              gap: "20px",
+              flexWrap: "wrap",
             }}
           >
-            <motion.h2
-              initial={{ opacity: 0, y: -40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              style={{
-                margin: 0,
-                fontSize: "clamp(2rem, 4vw, 2.6rem)",
-                color: "#61dafb",
-                fontWeight: 700,
-                textAlign: "center",
-              }}
-            >
-              Contact Me!
-            </motion.h2>
             <div
-              aria-hidden
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 96px)",
-                gap: "32px",
-                marginTop: "45px",
-                justifyContent: "center",
+                flex: "1 1 320px",
+                maxWidth: "360px",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                alignItems: "center",
               }}
             >
-              {contactIconItems.map((item, index) => (
-                <a
-                  key={`${item.label}-${index}`}
-                  href={item.href}
-                  aria-label={`${item.label} link`}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              <motion.h2
+                initial={{ opacity: 0, y: -40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(2rem, 4vw, 2.6rem)",
+                  color: "#61dafb",
+                  fontWeight: 700,
+                  textAlign: "center",
+                }}
+              >
+                Contact Me!
+              </motion.h2>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 96px)",
+                  gap: "32px",
+                  marginTop: "45px",
+                  justifyContent: "center",
+                }}
+              >
+                {contactIconItems.map((item, index) => (
+                  <a
+                    key={`${item.label}-${index}`}
+                    href={item.href}
+                    aria-label={`${item.label} link`}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    style={{
+                      width: 96,
+                      height: 96,
+                      gridColumn: index === contactIconItems.length - 1 ? "1 / -1" : undefined,
+                      justifySelf: index === contactIconItems.length - 1 ? "center" : undefined,
+                      borderRadius: "14px",
+                      background: "rgba(8, 10, 14, 0.72)",
+                      border: "1px solid rgba(255, 214, 170, 0.6)",
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+                      display: "grid",
+                      placeItems: "center",
+                      color: "#fffaf2",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div
+              style={{
+                flex: "0 0 auto",
+                width: "min(380px, 100%)",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <ProfileCard
+                name="Jhon Ramirez"
+                title="Electrical Engineer, B.S."
+                location="New York"
+                image="/profile.jpg"
+                tags={["Circuit Desing", "C/C++", "PCB Desing", "Power Electronics"]}
+              />
+            </div>
+          </div>
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            style={{
+              width: "100%",
+              padding: "18px 22px",
+              borderRadius: "24px",
+              background: "rgba(8, 10, 14, 0.72)",
+              border: "1px solid rgba(97, 218, 251, 0.28)",
+              boxShadow: "0 24px 50px rgba(0, 0, 0, 0.32)",
+              backdropFilter: "blur(14px)",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "16px",
+                flexWrap: "wrap",
+              }}
+            >
+              <div
+                style={{
+                  flex: "1 1 320px",
+                }}
+              >
+                <h3
                   style={{
-                    width: 96,
-                    height: 96,
-                    gridColumn: index === contactIconItems.length - 1 ? "1 / -1" : undefined,
-                    justifySelf: index === contactIconItems.length - 1 ? "center" : undefined,
-                    borderRadius: "14px",
-                    background: "rgba(8, 10, 14, 0.72)",
-                    border: "1px solid rgba(255, 214, 170, 0.6)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
-                    display: "grid",
-                    placeItems: "center",
+                    margin: 0,
+                    fontSize: "clamp(1.15rem, 2.2vw, 1.55rem)",
+                    color: "#f8fafc",
+                  }}
+                >
+                  Preview and Download my Resume
+                </h3>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <a
+                  href={resumeUrl}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setIsResumeOpen(true);
+                  }}
+                  style={{
+                    padding: "12px 18px",
+                    borderRadius: "999px",
+                    background: "#61dafb",
+                    color: "#04111c",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    boxShadow: "0 12px 24px rgba(97, 218, 251, 0.2)",
+                  }}
+                >
+                  Preview Resume
+                </a>
+                <a
+                  href={resumeUrl}
+                  download="Jhon-Ramirez-Resume.pdf"
+                  style={{
+                    padding: "12px 18px",
+                    borderRadius: "999px",
+                    background: "transparent",
                     color: "#fffaf2",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    border: "1px solid rgba(255, 214, 170, 0.6)",
+                  }}
+                >
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </motion.section>
+        </div>
+      </div>
+      {isResumeOpen ? (
+        <div
+          onClick={() => setIsResumeOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 2500,
+            background: "rgba(1, 4, 9, 0.82)",
+            backdropFilter: "blur(10px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "32px 20px",
+            boxSizing: "border-box",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.25 }}
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              width: "min(1100px, 100%)",
+              height: "min(88vh, 900px)",
+              borderRadius: "26px",
+              overflow: "hidden",
+              border: "1px solid rgba(97, 218, 251, 0.28)",
+              background: "rgba(6, 10, 18, 0.96)",
+              boxShadow: "0 32px 80px rgba(0, 0, 0, 0.45)",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "16px",
+                padding: "16px 18px",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                background: "rgba(9, 14, 22, 0.96)",
+              }}
+            >
+              <div
+                style={{
+                  display: "grid",
+                  gap: "6px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "0.78rem",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "rgba(255, 214, 170, 0.85)",
+                  }}
+                >
+                  Resume Preview
+                </span>
+                <span
+                  style={{
+                    color: "#f8fafc",
+                    fontWeight: 600,
+                  }}
+                >
+                  Jhon Ramirez Resume
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <a
+                  href={resumeViewerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    padding: "10px 16px",
+                    borderRadius: "999px",
+                    background: "#61dafb",
+                    color: "#04111c",
+                    fontWeight: 700,
                     textDecoration: "none",
                   }}
                 >
-                  {item.icon}
+                  Open PDF
                 </a>
-              ))}
+                <a
+                  href={resumeUrl}
+                  download="Jhon-Ramirez-Resume.pdf"
+                  style={{
+                    padding: "10px 16px",
+                    borderRadius: "999px",
+                    background: "transparent",
+                    color: "#fffaf2",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    border: "1px solid rgba(255, 214, 170, 0.6)",
+                  }}
+                >
+                  Download
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsResumeOpen(false)}
+                  style={{
+                    padding: "10px 16px",
+                    borderRadius: "999px",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    background: "rgba(255, 255, 255, 0.04)",
+                    color: "#e5e7eb",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                >
+                  Close
+                </button>
+              </div>
             </div>
-          </div>
-          <div
-            style={{
-              flex: "0 0 auto",
-              width: "min(380px, 100%)",
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <ProfileCard
-              name="Jhon Ramirez"
-              title="Electrical Engineer, B.S."
-              location="New York"
-              image="/profile.jpg"
-              tags={["Circuit Desing", "C/C++", "PCB Desing", "Power Electronics"]}
-            />
-          </div>
+            <div
+              style={{
+                flex: 1,
+                minHeight: 0,
+                background: "rgba(2, 6, 12, 0.88)",
+              }}
+            >
+              <object
+                data={resumePreviewUrl}
+                type="application/pdf"
+                width="100%"
+                height="100%"
+                aria-label="Resume PDF preview"
+              >
+                <div
+                  style={{
+                    height: "100%",
+                    display: "grid",
+                    placeItems: "center",
+                    padding: "24px",
+                    boxSizing: "border-box",
+                    textAlign: "center",
+                    color: "rgba(226, 232, 240, 0.82)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "grid",
+                      gap: "12px",
+                      maxWidth: "460px",
+                    }}
+                  >
+                    <p
+                      style={{
+                        margin: 0,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      PDF preview is unavailable until the resume file is added or the browser
+                      blocks embedded PDF rendering.
+                    </p>
+                    <p
+                      style={{
+                        margin: 0,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      Use the buttons above after placing your file at{" "}
+                      <code>public/resume.pdf</code>.
+                    </p>
+                  </div>
+                </div>
+              </object>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }

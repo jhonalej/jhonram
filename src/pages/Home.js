@@ -88,9 +88,9 @@ function Home() {
           position: "relative",
           width: "100%",
         }}
-      >
-        Jhon Ramirez
-      </header>
+        >
+          Jhon&apos;s Portfolio
+        </header>
 
       <div
         ref={contentRef}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './StaggeredMenu.css';
 
+const defaultLogoUrl = `${process.env.PUBLIC_URL || ''}/logo.svg`;
+
 export const StaggeredMenu = ({
   position = 'right',
   colors = ['#B19EEF', '#5227FF'],
@@ -11,7 +13,7 @@ export const StaggeredMenu = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  logoUrl = defaultLogoUrl,
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   accentColor = '#5227FF',
@@ -366,7 +368,7 @@ export const StaggeredMenu = ({
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
           <img
-            src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
+            src={logoUrl || defaultLogoUrl}
             alt="Logo"
             className="sm-logo-img"
             draggable={false}
