@@ -25,10 +25,9 @@ const socialItems = [
 function Projects() {
   const { outerRef, contentRef, scale } = useViewportScale();
   const introText = [
-    "This is where most of my project are, I have 3 big projects which are my Kinetic sand table, the LED-Cube and lastly",
-    "the smart magic mirror. Along with these projects I have done some small projects that I want to show case. Lastly I want",
-    "to include projects that I have done through out my classes I took during my 4 years of my undergrad. Each folder can be clicked to",
-    "open and see more images or details about the project.",
+    "This is where most of my projects are. I have three major projects: my kinetic sand table, the LED cube, and the smart magic mirror.",
+    "I also want to include projects I worked on throughout my undergraduate studies.",
+    "Each folder can be opened to view more images, and each image can be clicked to access the GitHub repository for that project.",
   ].join(" ");
   const powerElectronicsItems = [
     {
