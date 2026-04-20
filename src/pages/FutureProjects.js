@@ -53,7 +53,7 @@ function FutureProjects() {
     "Here are some of the projects I am planning to work on in the near future.",
     "below is a timeline outlining which projects are slated for development in the coming months.",
     "Along with each project, I've included a brief description and its current status.",
-    "I will prosvide updates as these projects progress on my social media platforms.",
+    "I will provide updates as these projects progress on my social media platforms.",
   ].join(" ");
   return (
     <div
