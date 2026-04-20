@@ -32,7 +32,7 @@ function Home() {
     require("../images/sand_table/controls.jpg"),
     require("../images/sand_table/Lines_color.jpg"),
     require("../images/LED_cube/side view.jpeg"),
-    require("../images/Smart Mirror/Defualt page.png"),
+    require("../images/Smart Mirror/AI_example.png"),
     require("../images/MAE 576 robot/top view with wheels.jpeg"),
   ];
 
